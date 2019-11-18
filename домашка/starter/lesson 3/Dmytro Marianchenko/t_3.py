@@ -8,9 +8,11 @@ if (discr > 0): #два корня
     x1 = (-b+discr**0.5)/(2*a)
     x2 = (-b-discr**0.5)/(2*a)
     print("результат:")
+    print(f"Дискриминант равен {discr}")
     print(f"x1= {x1}\nx2= {x2}")
 elif (discr == 0): #один корень
-    print("x= ",-b/(2*а))
+    x = -b/(2*a)
+    print(f"x= {x}")
 else:
     print("нет корней")
 input("для завершения нажмите 'Enter'")
