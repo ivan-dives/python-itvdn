@@ -1,20 +1,20 @@
 import math
 
 
-def check_name(name: str, my_name="Taras") -> bool:
+def check_name(name, my_name="Taras"):
     return name[0:].lower() == my_name[0:].lower()
 
 
-def fun_y(x: int) -> float:
-    if -math.pi <= x <= math.pi:
+def fun_y(number):
+    if -math.pi <= number <= math.pi:
         print("y = cos(3x) = ", end="")
-        return math.cos(3*x)
+        return math.cos(3 * number)
     print("y = x = ", end="")
-    return x
+    return number
 
 
-name = input("Hello, Could you plese insert your name: ")
-print("Damn, I have the same name" if check_name(name) else "Sorry, bad answer bro")
+name_input = input("Hello, Could you plese insert your name: ")
+print("Damn, I have the same name" if check_name(name_input) else "Sorry, bad answer bro")
 
 
 x = None
