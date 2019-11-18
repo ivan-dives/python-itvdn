@@ -1,7 +1,7 @@
 #Lesson3
 
 #Task1
-name = input("What's your names? ")
+name = input("What's your name? ")
 if name == "Aleks":
     print("Have a nice day, {0}".format(name))
 
