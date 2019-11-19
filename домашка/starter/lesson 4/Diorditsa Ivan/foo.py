@@ -5,6 +5,8 @@ for i in range(3):
         print('*', end='')
     print()
 
+# новая версия
+
 sys.exit()
 
 for x in []:
