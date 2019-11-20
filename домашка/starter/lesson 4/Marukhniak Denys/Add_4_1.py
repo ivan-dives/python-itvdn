@@ -1,4 +1,4 @@
-import random
+from random import choice
 
 long = int(input('Long for password: '))
 amount = int(input('Amount of passwords: '))
@@ -28,7 +28,7 @@ for a in range(amount):
             symbols += capital_all
         if sp == 'y':
             symbols += special_all
-        password += random.choice(symbols)
+        password += choice(symbols)
     for index in range(long):
         if not password[index] in symbols:
             print('How does it possible?')
