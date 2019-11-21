@@ -137,6 +137,8 @@ if p_num_case !=0:
 else:
     pass
 
+
+print()
 for i in range(count_p):
     passw = ""
     for r in range(lenght_p):
