@@ -7,8 +7,11 @@ lenght_sum = 0
 
 
 l_case = input("Вы хотите использовать в пароле латинские символы нижнего регистра? y = Да, n = Нет?:  ")
-l_case_count = 0
-p_l_case = 0
+l_case_count = ""
+u_case_count = ""
+numbers_count = ""
+p_l_case = ""
+
 while True:
     if l_case == "y":
         l_case_count = int(input("Веедите количество сомволов которое вы хотите использовать?:  "))
@@ -27,8 +30,8 @@ while True:
         print(f"вы ввели '{l_case}', считаем что это 'нет'... поехали дальше")
         break
 
-u_case_count = 0
-p_u_case = 0
+
+
 if lenght_sum != 0:
     u_case = input("Вы хотите использовать в пароле латинские символы верхнего регистра? y = Да, n = Нет?:  ")
     u_case_count = 0
@@ -52,8 +55,8 @@ if lenght_sum != 0:
 else:
     pass
 
-numbers_count = 0
-p_num_case = 0
+
+
 if lenght_sum != 0:
     numbers = input("Вы хотите использовать в пароле цифры? y = Да, n = Нет?:  ")
     while True:
@@ -69,10 +72,8 @@ if lenght_sum != 0:
                 print(f"Отлично, еще осталось определить {lenght_sum} символ(ов)")
             break
         elif numbers == "n":
-            numbers_count = 0
             break
         else:
-            numbers_count = 0
             print(f"вы ввели '{numbers}', считаем что это 'нет'... поехали дальше")
             break
 else:
@@ -123,11 +124,18 @@ else:
 passwd_sum =""
 if p_l_case != 0:
     passwd_sum = passwd_sum + p_l_case
-elif p_u_case !=0:
-    passwd_sum = passwd_sum + p_u_case
-elif p_num_case !=0:
-    passwd_sum = passwd_sum + p_num_case
+else:
+    pass
 
+if p_u_case !=0:
+    passwd_sum = passwd_sum + p_u_case
+else:
+    pass
+
+if p_num_case !=0:
+    passwd_sum = passwd_sum + p_num_case
+else:
+    pass
 
 for i in range(count_p):
     passw = ""
