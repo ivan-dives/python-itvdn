@@ -1,26 +1,34 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*_
+
 import random
 
-while True:
-    length = int(input("Please input length of password min 6: "))
-    count = int(input("Please input number of passwords min 1: "))
-    if length >= 6 and count >= 1:
-        break
-    print("repeat")
+str1 = '0123456789'
+str2 = 'abcdefghijklmnopqrstuvwxyz'
+str_optional = '!\"#$%&\'()*+,-./:;<=>?@[\]^_`{|}~'
 
-while True:
-    choice_bool = True
-    choice = input("Do you need special symbols Y/N (yes or no): ")
+def check_inputs(length, count):
+    """
+    This function check inputs length for passwords
+    and counts to generate number of passwords
+    """
+    return length >= 6 and count >= 1
+
+
+def check_symbols(choice):
+    """
+    check if user input YES otherway -> False
+    """
+    choice_bool = False
     if choice.lower() == "y" or choice.lower() == "yes":
         choice_bool = True
-        break
-    elif choice.lower() == "n" or choice.lower() == "no":
-        choice_bool = False
-        break
-    else:
-        print("Enter  Y/N (yes or no)")
+    return choice_bool
 
 
-def password(length=6, choice=False):
+def password(length, choice):
+    """
+    If all ok - generate passwords
+    """
     password = ""
     x = 3
     if choice:
@@ -28,21 +36,37 @@ def password(length=6, choice=False):
     for i in range(length):
         use_symbol = random.randint(1, x)
         if use_symbol == 1:
-            password += chr(random.randint(48, 57)) # Numbers
+            password += str1[random.randint(0, len(str1)-1)]
         elif use_symbol == 2:
-            password += chr(random.randint(65, 90)) # Upper case
+            password += str2[random.randint(0, len(str2)-1)].upper()
         elif use_symbol == 3:
-            password += chr(random.randint(97, 122)) # Low case
+            password += str2[random.randint(0, len(str2)-1)]
         elif use_symbol == 4:
-            password += chr(random.randint(33, 47))
+            password += str_optional[random.randint(0, len(str_optional)-1)]
     return password
 
 
-def pass_generator(count, length, choice):
-    return [password(length, choice) for i in range(count)]
+def pass_generator(length, count, choice):
+    """
+    If all ok - generate passwords
+    """
+    if check_inputs(length, count):
+        return [password(length, choice) for i in range(count)]
+    return ""
 
 
-print(*pass_generator(count, length, choice_bool), sep="\n")
+def main():
+    while True:
+        length = int(input("Please input length of password min 6: "))
+        count = int(input("Please input number of passwords min 1: "))
+        choice = input("Do you want symbols Y/N: ")
+        lst = pass_generator(length, count, check_symbols(choice))
+        if lst:
+            print(lst)
+            break
+        else:
+            print("Plese insert correct data")
 
 
-
+if __name__ == '__main__':
+    main()
