@@ -1,4 +1,5 @@
 print("Генератор паролей")
+
 l_case_count = ""
 u_case_count = ""
 numbers_count = ""
