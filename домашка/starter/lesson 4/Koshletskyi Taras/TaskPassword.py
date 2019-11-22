@@ -3,7 +3,7 @@
 
 import random
 
-str1 = '0123456789' # c 2 по 5 строку наборы символов.
+str1 = '0123456789'
 str2 = 'abcdefghijklmnopqrstuvwxyz'
 str_optional = '!\"#$%&\'()*+,-./:;<=>?@[\]^_`{|}~'
 
