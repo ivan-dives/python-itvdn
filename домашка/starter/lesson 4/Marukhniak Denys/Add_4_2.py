@@ -1,8 +1,9 @@
 print('Enter your code using PEP8. If you want to finish coding enter "end":')
 name = ''
-value = None
+value = ''
 while True:
     cloud = ''
+    cloud_s = ''
     a = ''
     b = ''
     string = input()
@@ -10,7 +11,9 @@ while True:
         cloud += string[i]
         # print(cloud)
         # print('') >>>
-        if cloud == "print('":
+        if "#" in cloud:
+            pass
+        elif cloud == "print('":
             for v1 in range(i, len(string)):
                 # print('a=', a)
                 a += string[v1]
@@ -42,18 +45,32 @@ while True:
         # variable num >>>
         elif cloud[len(cloud)-3:] == " = " and not string[len(cloud)] in ['"', "'", 'i']:
             name = cloud[:-3]
-            value = int(string[len(cloud):])
+            for num in range(len(cloud), len(string)):
+                if string[num] in ['1', '2', '3', '4', '5', '6', '7', '8', '9']:
+                    value += string[num]
+                else:
+                    break
+            value = int(value)
         # variable '' >>>
         elif cloud[len(cloud)-4:] == " = '":
             name = cloud[:-4]
-            value = string[len(cloud):-1]
+            value = ''
+            for num in range(len(cloud), len(string)):
+                if string[num] != "'":
+                    value += string[num]
+                else:
+                    break
+            print(value, '11')
+            print(name, '22')
         # variable "" >>>
         elif cloud[len(cloud)-4:] == ' = "':
             name = cloud[:-4]
-            value = string[len(cloud):-1]
-        # commentary >>>
-        elif cloud == "#":
-            pass
+            value = ''
+            for num in range(len(cloud), len(string)):
+                if string[num] != '"':
+                    value += string[num]
+                else:
+                    break
     # end >>>
     if string.lower() == "end":
         break
