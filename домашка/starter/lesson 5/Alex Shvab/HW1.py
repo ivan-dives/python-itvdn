@@ -1,8 +1,9 @@
 def hello(name='Alex'):
-    print("Hi", name, "!", sep=" ")
+    if name == "":
+        print("Hi Alex!")
+    else:
+        print(f"Hi {name} !")
 
 yourname = input("Enter your name: ")
-if yourname == "":
-    hello()
-else:
-    hello(yourname)
+
+hello(yourname)
