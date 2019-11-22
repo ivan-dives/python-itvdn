@@ -3,10 +3,20 @@
 # имя не указано, она должна выводить приветствие для пользователя с Вашим именем.
 
 name = input('Введите имя: ')
+print()
 
-def user():
+def user1():
     if name:
         print(f'Hello {name}!!!')
     else:
         print(f'Hello Max!!!')
-user()
+
+def user2(x):
+    if x:
+        print(f'Hello {x}!!!')
+    else:
+        print(f'Hello Max!!!')
+
+user1()
+print()
+user2(name)
