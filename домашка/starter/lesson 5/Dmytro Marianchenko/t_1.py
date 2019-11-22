@@ -1,8 +1,15 @@
 
 
 def name_hi(my_name="Dima"):
-    print(f"Hello {my_name}!")
+    print(f"My name is {my_name}!")
+
+name = input("Hello! What is your name?:  ")
+if name == "":
+    name_hi()
+else:
+    name_hi(name)
 
 
-name_hi(input("What is your name?:  "))
-name_hi()
+
+
+
