@@ -11,24 +11,21 @@ def recpol(s):
 def stringpol(t):
     if list(t) == list(reversed(t)):
         return True
-    else:
-        return False
+    return False
 
 def stringpol2(t):
     if t == t[::-1]:
         return True
-    else:
-        return False
+    return False
 
 def cyclpol(t):
     for i in range(len(t)):
         s = 0
         if t[i-1] != t[-i]:
             s -= 1
-    if s < 0:
-        return False
-    else:
+    if s >= 0:
         return True
+    return False
 
 def choise():
     input_user = input('1|2|3|4|anything else to exit')
