@@ -6,5 +6,4 @@ def step(x):
 
 n = int(input("Enter number of stair steps: "))
 
-
 print(f"You can walk {n} stair steps in {step(n+1)} ways")
