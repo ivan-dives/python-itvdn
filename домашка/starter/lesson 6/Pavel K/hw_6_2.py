@@ -1,6 +1,8 @@
 '''
 मैंने सिर्फ अभ्यास करने और अनुभव हासिल करने का फैसला किया। आँखों में दर्द के लिए क्षमा करें।
 '''
+
+
 def recpol(s):
     if len(s) == 1:
         return True
@@ -8,24 +10,28 @@ def recpol(s):
         return False
     return recpol(s[1:-1])
 
+
 def stringpol(t):
     if list(t) == list(reversed(t)):
         return True
     return False
+
 
 def stringpol2(t):
     if t == t[::-1]:
         return True
     return False
 
+
 def cyclpol(t):
     for i in range(len(t)):
         s = 0
-        if t[i-1] != t[-i]:
+        if t[i - 1] != t[-i]:
             s -= 1
     if s >= 0:
         return True
     return False
+
 
 def choise():
     input_user = input('1|2|3|4|anything else to exit')
@@ -41,5 +47,6 @@ def choise():
         exit(0)
     print(t)
     choise()
+
 
 choise()
