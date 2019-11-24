@@ -4,7 +4,10 @@
 
 
 def hello(my_name='Den'):
-    print(f'Hello, {my_name}!')
+    if name == "":
+        print('Hello, Den!')
+    else:
+        print(f'Hello, {my_name}!')
 
 
 name = input('What is your name? ')
