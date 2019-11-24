@@ -6,7 +6,9 @@ def fib(n):
         return 0
     elif n == 1:
         return 1
+    elif n == 2:
+        return 2
     else:
         return fib(n - 1) + fib(n - 2)
 
-print(fib(input('put number Fibonacci')))
+print(fib(int(input('put number Fibonacci'))))
