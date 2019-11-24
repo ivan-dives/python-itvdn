@@ -34,10 +34,10 @@ while True:
         # print >>>
         elif cloud == 'print(' and string[len(cloud)] != '"' and string[len(cloud)] != "'":
             if value:
-                if string[len(cloud):-1] == name:
+                if string[len(cloud):len(cloud)+len(name)] == name and string[len(cloud)+len(name)] == ')':
                     print(value)
                 else:
-                    print(f"NameError: name '{string[len(cloud):-1]}' is not defined")
+                    print(f"NameError: name '{string[len(cloud):len(cloud)+len(name)]}' is not defined")
         # = input >>>
         elif cloud[len(cloud)-10:] == " = input('" or cloud[len(cloud)-10:] == ' = input("':
             name = cloud[:-10]
