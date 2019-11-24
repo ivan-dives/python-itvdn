@@ -12,15 +12,10 @@ def recpol(s):
 
 
 def stringpol(t):
-    if list(t) == list(reversed(t)):
-        return True
-    return False
-
+    return list(t) == list(reversed(t))
 
 def stringpol2(t):
-    if t == t[::-1]:
-        return True
-    return False
+    return t == t[::-1]
 
 
 def cyclpol(t):  # by index
@@ -55,7 +50,7 @@ def choise():
     elif input_user == '4':
         t = cyclpol(input('enter a word and find out if it is a polindrome'))
     elif input_user == '5':
-        t = cyclpol(input('enter a word and find out if it is a polindrome'))
+        t = cyclpol2(input('enter a word and find out if it is a polindrome'))
     else:
         exit(0)
     print(t)
@@ -63,3 +58,4 @@ def choise():
 
 
 choise()
+
