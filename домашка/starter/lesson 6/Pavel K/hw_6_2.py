@@ -23,7 +23,7 @@ def stringpol2(t):
     return False
 
 
-def cyclpol(t):
+def cyclpol(t):  # by index
     for i in range(len(t)):
         s = 0
         if t[i - 1] != t[-i]:
@@ -33,8 +33,19 @@ def cyclpol(t):
     return False
 
 
+def cyclpol2():  # by object
+    for i in t:
+        n = len(t)
+        s = 0
+        if i != t[n - 1]:
+            s -= 1
+            if s >= 0:
+                return True
+            return False
+
+
 def choise():
-    input_user = input('1|2|3|4|anything else to exit')
+    input_user = input('1|2|3|4|5|anything else to exit')
     if input_user == '1':
         t = recpol(input('enter a word and find out if it is a polindrome'))
     elif input_user == '2':
@@ -42,6 +53,8 @@ def choise():
     elif input_user == '3':
         t = stringpol2(input('enter a word and find out if it is a polindrome'))
     elif input_user == '4':
+        t = cyclpol(input('enter a word and find out if it is a polindrome'))
+    elif input_user == '5':
         t = cyclpol(input('enter a word and find out if it is a polindrome'))
     else:
         exit(0)
