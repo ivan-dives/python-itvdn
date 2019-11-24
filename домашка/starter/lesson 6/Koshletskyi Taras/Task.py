@@ -54,7 +54,7 @@ def main():
             print(f"{word}={method_to_call(word.lower())}", end=" ")
         print()
     print("Task Stairs")
-    print(f'stairs = {stairs(10)}')
+    print(f'stairs = {stairs(40)}')
     print("Additional Task")
     print(f"sum = {sum(8,20)}")
 
