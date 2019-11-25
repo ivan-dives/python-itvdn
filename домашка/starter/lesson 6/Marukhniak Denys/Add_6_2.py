@@ -16,7 +16,5 @@ def path_tree(p):
         else:
             print(f)
 
-    return
-
 
 path_tree(PATH)
