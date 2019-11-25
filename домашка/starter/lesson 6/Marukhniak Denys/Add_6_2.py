@@ -18,15 +18,5 @@ def path_tree(p):
 
     return
 
-    types = os.lstat(p)
-    folder = stat.S_ISDIR(types.st_mode)  # вернёт True если папка
-    if folder:
-
-        #path = path + f'\\{os.listdir(path=path)[0]}'
-        path_tree(path)
-        return path
-    else:
-        print(path)
-        return
 
 path_tree(PATH)
