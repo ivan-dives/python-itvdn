@@ -17,7 +17,8 @@ class MyPolidron:
             return True
         if word[0] == word[-1]:
             return MyPolidron.poli_recurs(word[1:-1])
-        return False
+        else:
+            return False
 
     def poli_for(word):
         str = ''
@@ -27,9 +28,12 @@ class MyPolidron:
 
 
 def sum(min, max):
-    if max == min:
+    if max < min:
+        return None
+    elif max == min:
         return min
-    return max+sum(min, max-1)
+    elif:
+        return max+sum(min, max-1)
 
 
 @lru_cache(maxsize=30)
@@ -42,10 +46,13 @@ def stairs(n):
 def main():
     words = []
     with open("words.txt") as file:
-        line = file.readline().strip()
-        while line:
+        for line in file.readline.strip():
             words.append(line)
-            line = file.readline().strip()
+
+        #line = file.readline().strip()
+        #while line:
+        #    words.append(line)
+        #    line = file.readline().strip()
     function = [fun for fun in dir(MyPolidron) if not fun.startswith("_")]
     for fun in function:
         print(f"{fun}: ", end="")
