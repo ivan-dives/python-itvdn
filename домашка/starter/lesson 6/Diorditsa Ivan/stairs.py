@@ -34,7 +34,7 @@ def stairs(n):
     else:
         return fib(n+1)
 
-doctest.run_docstring_examples(stairs, globals(), verbose=True)
+doctest.run_docstring_examples(stairs, None, verbose=True)
 
 #n = input()
 #n = int(n)
