@@ -1,0 +1,10 @@
+# Дополнительное задание
+def foo(b):
+    if a == b:
+        return a
+    else:
+        return b + foo(b-1)
+        
+a = int(input("Enter 1-st number: "))
+b = int(input("Enter 2-st number: "))
+print(foo(b))

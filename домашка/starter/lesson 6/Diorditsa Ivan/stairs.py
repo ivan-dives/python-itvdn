@@ -2,13 +2,19 @@ import doctest
 
 #doctest.testmod()
 
-def __stairs(n):
+
+def fib(n):
     if n == 0:
         return 0
     elif n == 1:
         return 1
     else:
-        return __stairs(n-1) + __stairs(n-2)
+        a = fib(n-1)
+        b = fib(n-2)
+        c = a + b
+        return c
+        #return fib(n-1) + fib(n-2)
+
 
 def stairs(n):
     '''
@@ -26,12 +32,11 @@ def stairs(n):
     if n == 0:
         return 0
     else:
-        return __stairs(n+1)
+        return fib(n+1)
 
-doctest.run_docstring_examples(stairs, globals(), verbose=True)
+doctest.run_docstring_examples(stairs, None, verbose=True)
 
 #n = input()
 #n = int(n)
 #s = stairs(n)
 #print(s)
-
