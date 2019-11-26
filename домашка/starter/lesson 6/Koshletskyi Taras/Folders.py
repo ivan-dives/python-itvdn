@@ -2,8 +2,9 @@
 # -*- coding: utf-8 -*_
 
 import os
+import pathlib
 
-path = '/Users/taraskoshletskyi/Downloads'
+PATH = pathlib.Path('/Users/taraskoshletskyi/Downloads/test')
 
 
 def tree(path):
@@ -13,12 +14,12 @@ def tree(path):
     if len(os.listdir(path)) == 0:
         print(path)
     for i in os.listdir(path):
-        if os.path.isfile(f'{path}/{i}'):
-            print(f'{path}/{i}')
-        elif os.path.isdir(f'{path}/{i}'):
-            tree(f'{path}/{i}')
+        if os.path.isfile(path/i):
+            print(path / i)
+        elif os.path.isdir(path / i):
+            tree(path / i)
 
 
 if __name__ == '__main__':
-    tree(path)
+    tree(PATH)
 
