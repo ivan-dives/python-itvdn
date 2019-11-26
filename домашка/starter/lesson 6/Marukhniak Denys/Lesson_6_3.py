@@ -6,7 +6,7 @@ import doctest
 
 
 def stair(stair_n):
-    '''
+    """
     >>> stair(0)
     0
     >>> stair(1)
@@ -17,7 +17,7 @@ def stair(stair_n):
     3
     >>> stair(4)
     5
-    '''
+    """
     if stair_n in range(-1, 2):
         return stair_n + 1
     else:
