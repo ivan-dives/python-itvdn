@@ -20,7 +20,7 @@ while True:
     max = int(input("Input a number (if you want to quit, input '00'):  "))
     if max > 0:
         fib(max)
-        print(numbers[-1])
+        print(f"Your Fibonacci number: {numbers[-1]}")
     elif max == 00:
         break
 
