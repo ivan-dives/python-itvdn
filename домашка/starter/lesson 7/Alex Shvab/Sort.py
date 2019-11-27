@@ -1,5 +1,11 @@
+import random
+list = []
+m = int(input("Enter number of elements in list: "))
+for y in range(m):
+    list.append(random.randint(-100000, 100000))
+print(list)
 # 1 Method
-list = [5, 7, 2, 3, 8, 1, 4]
+
 
 for j in range(len(list), 0, -1):
     for i in range(len(list) - 1):
