@@ -1,0 +1,7 @@
+for x in range(3,25):
+    prostoe = True
+    for i in range(2,x):
+        if (x%i==0):
+            prostoe = False
+    if prostoe:
+       print(x)
