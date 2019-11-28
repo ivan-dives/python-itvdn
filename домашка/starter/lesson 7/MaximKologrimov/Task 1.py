@@ -10,7 +10,6 @@ while True:
     '''
     list.append(input('number: '))
     x = len(list)
-    sum = list[0]
     if x == 5:
         min = min(list)
         max = max(list)
