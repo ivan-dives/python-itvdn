@@ -13,6 +13,7 @@ class Book:
                f"Год написания: {self.year}\n Жанр: {self.ganre}\n " \
                f"Comments : {self.comment}"
 
+
 class Comment:
 
     def __init__(self, human, comment):
