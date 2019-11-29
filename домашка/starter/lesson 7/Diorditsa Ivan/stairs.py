@@ -2,7 +2,6 @@
 
 MEMOIZE = [0, 1]
 
-
 # def _fib(n):
 #     try:
 #         return MEMOIZE[n]
@@ -17,7 +16,7 @@ def fib(n):
         return MEMOIZE[n]
     else:
         v = fib(n-1) + fib(n-2)
-        MEMOIZE.insert(n, v)
+        MEMOIZE.append(n, v)
         return v
 
 
