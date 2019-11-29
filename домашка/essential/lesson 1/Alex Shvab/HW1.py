@@ -1,20 +1,16 @@
 class Book:
-    __author = ""
-    __name = ""
-    __year = 0
-    __ganre = ""
 
-    def __init__ (self, new_author, new_name, new_year, new_ganre):
-        self.__author = new_author
-        self.__name = new_name
-        self.__year = new_year
-        self.__ganre = new_ganre
+    def __init__ (self, author, name, year, ganre):
+        self.author = author
+        self.name = name
+        self.year = year
+        self.ganre = ganre
 
     def __eq__(self, other):
-        if self.__author == other.__author and \
-            self.__name == other.__name and \
-            self.__year == other.__year and \
-            self.__ganre == other.__ganre:
+        if self.author == other.author and \
+            self.name == other.name and \
+            self.year == other.year and \
+            self.ganre == other.ganre:
             return True
         else:
             return False
@@ -22,8 +18,8 @@ class Book:
 
 
     def __str__(self):
-        return f" Автор: {self.__author}\n Книга: {self.__name}\n " \
-               f"Год написания: {self.__year}\n Жанр: {self.__ganre}"
+        return f" Автор: {self.author}\n Книга: {self.name}\n " \
+               f"Год написания: {self.year}\n Жанр: {self.ganre}"
 
 
 comedy = Book("Данте", "Божественная комедия", 1308, "Эпос")
