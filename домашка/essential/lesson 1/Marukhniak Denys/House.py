@@ -102,8 +102,10 @@ print(first > second)
 print('----------------------')
 if not (first > second):
     print('Второй дом больше первого')
+    print(second.__len__())
+    print(second.__int__())
 else:
     print('Первый дом больше второго')
-print(first.__len__())
-print(first.__int__())
+    print(first.__len__())
+    print(first.__int__())
 print('----------------------')
