@@ -18,10 +18,10 @@ while True:
 
 print(lst)
 
-add = input("Хотите перевернуть список? (y/n):  ")
-    if add == "y":
-        lst.reverse()
-        print(lst)
-        lst.reverse() # разворот в исходную позицию
-    elif add == "n":
-        pass
+add1 = input("Хотите перевернуть список? (y/n):  ")
+if add == "y":
+    lst.reverse()
+    print(lst)
+    lst.reverse() # разворот в исходную позицию
+elif add == "n":
+    pass

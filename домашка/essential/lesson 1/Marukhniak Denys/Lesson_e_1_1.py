@@ -24,7 +24,7 @@ class Book:
 
     def __eq__(self, other):
         if self == self.name:
-            print(f'{self.name} == {other.name}?')
+            print(f'{self.name} is {other.name}?')
             return self.name is other.name
         elif self == self.authors_name:
             print(f'{self.authors_name} == {other.authors_name}?')
