@@ -12,6 +12,8 @@ def simpl_numb(n):
 x = int(input("Enter end: "))
 simpl_numb(x+1)
 print(f"Simple numbers: {list}")
+
+
 while True:
     print("""Enter operation:
     1. Sum
