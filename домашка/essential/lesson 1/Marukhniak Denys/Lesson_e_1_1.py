@@ -23,12 +23,20 @@ class Book:
                f"Genre of book: {self.genre}"
 
     def __eq__(self, other):
-        if self == self.name:
+        result_n = ''
+        result_a = ''
+        if self.name is other.name:
             print(f'{self.name} == {other.name}?')
-            return self.name is other.name
-        elif self == self.authors_name:
+            result_n = self.name is other.name
+        elif self is not self.name:
+            result_n = 'Books have different names'
+        if self is self.authors_name:
             print(f'{self.authors_name} == {other.authors_name}?')
-            return self.authors_name is other.authors_name
+            result_a = self.authors_name is other.authors_name
+        elif self is not self.authors_name:
+            result_a = 'Books written by different authors'
+        return f'{result_n}\n' \
+               f'{result_a}'
 
     def __ne__(self, other):
         print(f'"{self.name}" is not "{other.name}"?')
@@ -46,6 +54,6 @@ print('----------------------------------')
 print(c)
 print('----------------------------------')
 
-print(a == b)
-print(a.authors_name == b.authors_name)
+print(c == b)
+print(c == a)
 print(a != b)
