@@ -3,19 +3,20 @@
 # так, что при выводе книги на экран при помощи функции print также будут выводиться отзывы к ней.
 
 
-# class Review(reviews):
-#     review = 'Пока нет отзывов'
-#
-#     def new_review(review):
-#         return  reviews.append(review)
+class Review:
+    new_review = []
 
-# class Book(Review):
+
 class Book:
     authors_name = 'Отсутствует'
     name = 'Отсутствует'
     year_of_publication = 'Отсутствует'
     genre = 'Отсутствует'
     reviews = []
+
+    def new_review(self, text):
+        new_review = Review(text)
+        self.reviews.append(new_review)
 
     def __init__(self, new_authors_name, new_name, new_publication, new_genre):
         self.authors_name = new_authors_name
@@ -51,7 +52,7 @@ while True:
     if yes_no.lower() == 'y':
         id_num = int(input('Введите id книги, которой хотите оставить отзыв: '))
         review = input('Введите отзыв: ')
-        id_b[id_num].reviews.append(review)
+        id_b[id_num].new_review(review)
     elif yes_no.lower() == 'n':
         break
 
