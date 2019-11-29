@@ -4,14 +4,14 @@
 import os
 import pathlib
 
-PATH = pathlib.Path('/Users/taraskoshletskyi/Downloads/test')
+PATH = pathlib.Path('/Users/taraskoshletskyi/Downloads')
 
 
 def tree(path):
     if not os.path.exists(path):
         print("Path is not exist")
         return
-    if len(os.listdir(path)) == 0:
+    elif len(os.listdir(path)) == 0:
         print(path)
     for i in os.listdir(path):
         if os.path.isfile(path/i):
