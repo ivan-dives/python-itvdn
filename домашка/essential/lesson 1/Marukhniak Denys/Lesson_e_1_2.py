@@ -31,7 +31,7 @@ class Book:
                f"Reviews: {self.reviews}"
 
     def __eq__(self, other):
-        print(f'{self.name} is {other.name}?')
+        print(f'"{self.name}" is "{other.name}"?')
         return self.name is other.name
 
     def __ne__(self, other):
