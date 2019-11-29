@@ -21,6 +21,7 @@ class Test:
 
 
 
+
 crucian = Test("Карась", 3)
 shurk = Test("Акула", 10)
 print(crucian)
