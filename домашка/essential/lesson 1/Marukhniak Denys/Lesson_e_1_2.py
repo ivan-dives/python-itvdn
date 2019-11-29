@@ -6,6 +6,9 @@
 class Review:
     new_review = []
 
+    def __init__(self, text):
+        self.new_review = [text]
+
 
 class Book:
     authors_name = 'Отсутствует'
