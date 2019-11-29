@@ -25,22 +25,20 @@ class Book:
     def __eq__(self, other):
         result_n = ''
         result_a = ''
-        if self.name is other.name:
-            print(f'{self.name} == {other.name}?')
+        if isinstance(self, other.__class__):
             result_n = self.name is other.name
-        elif self is not self.name:
+        else:
             result_n = 'Books have different names'
-        if self is self.authors_name:
-            print(f'{self.authors_name} == {other.authors_name}?')
+        if isinstance(self, other.__class__):
             result_a = self.authors_name is other.authors_name
-        elif self is not self.authors_name:
+        else:
             result_a = 'Books written by different authors'
-        return f'{result_n}\n' \
-               f'{result_a}'
+        return f'"{self.name}" is "{other.name}"? >>> {result_n}\n' \
+               f'"{self.authors_name}" is "{other.authors_name}"? >>> {result_a}' \
+               f'\n'
 
     def __ne__(self, other):
-        print(f'"{self.name}" is not "{other.name}"?')
-        return self.name is not other.name
+        return f'"{self.name}" is not "{other.name}"? >>> {self.name is not other.name}'
 
 
 a = Book('Виктор Пелевин', 'Чапаев и Пустота', '1996', 'Фантастика')
