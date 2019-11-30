@@ -5,10 +5,6 @@
 
 
 class Book:
-    authors_name = '-'
-    name = '-'
-    year_of_publication = '-'
-    genre = '-'
 
     def __init__(self, new_authors_name, new_name, new_publication, new_genre):
         self.authors_name = new_authors_name
