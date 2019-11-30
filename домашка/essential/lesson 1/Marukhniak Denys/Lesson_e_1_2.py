@@ -11,10 +11,6 @@ class Review:
 
 
 class Book:
-    authors_name = 'Отсутствует'
-    name = 'Отсутствует'
-    year_of_publication = 'Отсутствует'
-    genre = 'Отсутствует'
     reviews = []
 
     def new_review(self, text):
