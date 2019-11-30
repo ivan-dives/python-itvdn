@@ -7,13 +7,13 @@ class Review:
     new_review = []
 
     def __init__(self, text):
-        self.new_review = [text]
+        self.new_review.append(text)
 
 
 class Book:
     reviews = []
 
-    def new_review(self, text):
+    def add_review(self, text):
         new_review = Review(text)
         self.reviews.append(new_review)
 
@@ -51,7 +51,7 @@ while True:
     if yes_no.lower() == 'y':
         id_num = int(input('Введите id книги, которой хотите оставить отзыв: '))
         review = input('Введите отзыв: ')
-        id_b[id_num].new_review(review)
+        id_b[id_num].add_review(review)
     elif yes_no.lower() == 'n':
         break
 
@@ -62,7 +62,5 @@ print(id_b[1])
 print('----------------------------------')
 print(id_b[2])
 print('----------------------------------')
-
 print(id_b[0] == id_b[1])
 print(id_b[0] != id_b[1])
-
