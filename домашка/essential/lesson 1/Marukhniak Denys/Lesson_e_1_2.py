@@ -9,6 +9,10 @@ class Review:
     def __init__(self, text):
         self.new_review.append(text)
 
+    def __str__(self):
+        for i in self.new_review:
+            print(i)
+
 
 class Book:
     reviews = []
@@ -39,15 +43,16 @@ class Book:
         return self.name is not other.name
 
 
-id_b = [[], [], []]
-id_b[0] = Book('Виктор Пелевин', 'Чапаев и Пустота', '1996', 'Фантастика')
-id_b[1] = Book('Стивен Кинг', 'Сияние', '1977', 'Ужасы')
-id_b[2] = Book('Стивен Кинг', 'Зелёная миля', '1996', 'Фэнтези')
+id_b = [
+    Book('Виктор Пелевин', 'Чапаев и Пустота', '1996', 'Фантастика'),
+    Book('Стивен Кинг', 'Сияние', '1977', 'Ужасы'),
+    Book('Стивен Кинг', 'Зелёная миля', '1996', 'Фэнтези')
+]
 id_b[1].reviews = ['Норм']
 id_b[2].reviews = ['Щедевр', '10 изи 10']
 
 while True:
-    yes_no = input('Хотите ввести отзыв для книги (Y/S)? ')
+    yes_no = input('Хотите ввести отзыв для книги (Y/N)? ')
     if yes_no.lower() == 'y':
         id_num = int(input('Введите id книги, которой хотите оставить отзыв: '))
         review = input('Введите отзыв: ')
