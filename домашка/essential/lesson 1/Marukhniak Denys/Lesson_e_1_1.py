@@ -21,17 +21,16 @@ class Book:
     def __eq__(self, other):
         result_n = ''
         result_a = ''
-        if isinstance(self, other.__class__):
+        if type(self) == type(other):
             result_n = self.name is other.name
         else:
             result_n = 'Books have different names'
-        if isinstance(self, other.__class__):
+        if type(self) == type(other):
             result_a = self.authors_name is other.authors_name
         else:
             result_a = 'Books written by different authors'
         return f'"{self.name}" is "{other.name}"? >>> {result_n}\n' \
-               f'"{self.authors_name}" is "{other.authors_name}"? >>> {result_a}' \
-               f'\n'
+               f'"{self.authors_name}" is "{other.authors_name}"? >>> {result_a}\n'
 
     def __ne__(self, other):
         return f'"{self.name}" is not "{other.name}"? >>> {self.name is not other.name}'
