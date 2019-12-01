@@ -80,7 +80,7 @@ class Truck(Venicle):
 
     def first_cross(self):
         return super().first_cross(
-            f'Так как вы едите на грузовике весом {self.capacity} вам нужно свернуть налево на перекрестке и выехать на обьездную.')
+            f'Так как вы едите на грузовике весом {self.capacity} тон, вам нужно свернуть налево на перекрестке и выехать на обьездную.')
 
     def ferry(self):
         return super().ferry(
