@@ -1,8 +1,4 @@
 class Book:
-    author = 'unknown'
-    book_title = 'unknown'
-    year = 'unknown'
-    genre_of_literature = 'unknown'
 
     def __init__(self,author, book_title, year, genre_of_literature, review = 'По этой книге пока нет отзыва.'):
         self.author = author
@@ -32,4 +28,3 @@ c = Book('Франко', 'Сотворение мира', '1905', 'Поема')
 c.review = [Review('Неожидал такого от франка.')]
 b.review = [Review('Долго не мог найти сборник сила сильных, спасибо вам.')]
 print(a,b,c)
-
