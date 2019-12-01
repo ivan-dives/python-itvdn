@@ -71,10 +71,12 @@ class House:
         return f"Дом строится"
 
     def __len__(self):
-        return f"Высота дома {(self.bricks + self.windows*30 + self.doors*50) / (self.long * 4)}"
+        print('Высота дома:')
+        return int((self.bricks + self.windows*30 + self.doors*50) / (self.long * 4))
 
     def __int__(self):
-        return f"Окон и дверей: {self.windows+self.doors}"
+        print('Окон и дверей:')
+        return self.windows+self.doors
 
 
 first = House(600, 5, 1)
@@ -102,10 +104,10 @@ print(first > second)
 print('----------------------')
 if not (first > second):
     print('Второй дом больше первого')
-    print(second.__len__())
-    print(second.__int__())
+    print(len(second))
+    print(int(second))
 else:
     print('Первый дом больше второго')
-    print(first.__len__())
-    print(first.__int__())
+    print(len(first))
+    print(int(first))
 print('----------------------')
