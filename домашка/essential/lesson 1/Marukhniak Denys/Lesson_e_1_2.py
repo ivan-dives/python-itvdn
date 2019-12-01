@@ -3,11 +3,8 @@
 # так, что при выводе книги на экран при помощи функции print также будут выводиться отзывы к ней.
 
 
-class Review:
+class Reviews:
     reviews = []
-
-    def __init__(self, text):
-        self.reviews = text
 
     def add_review(self, text):
         self.reviews.append(text)
@@ -16,7 +13,8 @@ class Review:
         return f"Reviews: {self.reviews}"
 
 
-class Book(Review):
+class Book:
+    reviews = [Reviews()]
 
     def __init__(self, new_authors_name, new_name, new_publication, new_genre):
         self.authors_name = new_authors_name
@@ -44,9 +42,7 @@ id_b = [
     Book('Стивен Кинг', 'Сияние', '1977', 'Ужасы'),
     Book('Стивен Кинг', 'Зелёная миля', '1996', 'Фэнтези')
 ]
-
-id_r = [Review('Норм'), Review('Щедевр')]
-
+id_r = [Reviews(), Reviews(), Reviews()]
 while True:
     yes_no = input('Хотите ввести отзыв для книги (Y/N)? ')
     if yes_no.lower() == 'y':
@@ -57,11 +53,11 @@ while True:
         break
 
 print('----------------------------------')
-print(id_b[0], id_r[0])
+print(id_b[0], id_r[0], sep='')
 print('----------------------------------')
-print(id_b[1], id_r[1])
+print(id_b[1], id_r[1], sep='')
 print('----------------------------------')
-print(id_b[2], id_r[2])
+print(id_b[2], id_r[2], sep='')
 print('----------------------------------')
 print(id_b[0] == id_b[1])
 print(id_b[0] != id_b[1])
