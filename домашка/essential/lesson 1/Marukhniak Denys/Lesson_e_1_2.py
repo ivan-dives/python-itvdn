@@ -4,22 +4,19 @@
 
 
 class Review:
-    new_review = []
-
-    def __init__(self, text):
-        self.new_review.append(text)
-
-    def __str__(self):
-        for i in self.new_review:
-            print(i)
-
-
-class Book:
     reviews = []
 
+    def __init__(self, text):
+        self.reviews = text
+
     def add_review(self, text):
-        new_review = Review(text)
-        self.reviews.append(new_review)
+        self.reviews.append(text)
+
+    def __str__(self):
+        return f"Reviews: {self.reviews}"
+
+
+class Book(Review):
 
     def __init__(self, new_authors_name, new_name, new_publication, new_genre):
         self.authors_name = new_authors_name
@@ -31,8 +28,7 @@ class Book:
         return f"Author's name: {self.authors_name}\n" \
                f"Name of the book: {self.name}\n" \
                f"Year of publication: {self.year_of_publication}\n" \
-               f"Genre of book: {self.genre}\n" \
-               f"Reviews: {self.reviews}"
+               f"Genre of book: {self.genre}\n"
 
     def __eq__(self, other):
         print(f'"{self.name}" is "{other.name}"?')
@@ -48,24 +44,24 @@ id_b = [
     Book('Стивен Кинг', 'Сияние', '1977', 'Ужасы'),
     Book('Стивен Кинг', 'Зелёная миля', '1996', 'Фэнтези')
 ]
-id_b[1].reviews = ['Норм']
-id_b[2].reviews = ['Щедевр', '10 изи 10']
+
+id_r = [Review('Норм'), Review('Щедевр')]
 
 while True:
     yes_no = input('Хотите ввести отзыв для книги (Y/N)? ')
     if yes_no.lower() == 'y':
         id_num = int(input('Введите id книги, которой хотите оставить отзыв: '))
         review = input('Введите отзыв: ')
-        id_b[id_num].add_review(review)
+        id_r[id_num].add_review(review)
     elif yes_no.lower() == 'n':
         break
 
 print('----------------------------------')
-print(id_b[0])
+print(id_b[0], id_r[0])
 print('----------------------------------')
-print(id_b[1])
+print(id_b[1], id_r[1])
 print('----------------------------------')
-print(id_b[2])
+print(id_b[2], id_r[2])
 print('----------------------------------')
 print(id_b[0] == id_b[1])
 print(id_b[0] != id_b[1])
