@@ -23,7 +23,7 @@ class ProEditor(Editor):
                 str = input("> ")
                 self.document = self.document + str
                 print(self.document)
-            elif ch == 1:
+            elif ch == 2:
                 print("Введите свой вариант документа")
                 str = input("> ")
                 self.document = str
@@ -32,7 +32,7 @@ class ProEditor(Editor):
                 print("С какого по какой символ вы хотите получить")
                 s = int(input("> "))
                 e = int(input("> "))
-                str = self.document[s:e:1]
+                str = self.document[s+1:e+1:1]
                 print(str)
             elif ch == 4:
                 print("Пока")
@@ -45,12 +45,12 @@ pas = input("> ")
 if pas != password:
     print("Вы испльзуете обычную версию редактора")
     edit = Editor()
-    print("""Что вы хотите сделать:
-    1. Посмотреть документ
-    2. Редактировать документ
-    3. Выход""")
-
     while True:
+        print("""Что вы хотите сделать:
+            1. Посмотреть документ
+            2. Редактировать документ
+            3. Выход""")
+
         ch = int(input(">"))
         if ch == 1:
             edit.view_document()
@@ -62,12 +62,13 @@ if pas != password:
 else:
     print("Вы испльзуете Pro версию редактора")
     edit = ProEditor()
-    print("""Что вы хотите сделать:
-        1. Посмотреть документ
-        2. Редактировать документ
-        3. Выход""")
 
     while True:
+        print("""Что вы хотите сделать:
+            1. Посмотреть документ
+            2. Редактировать документ
+            3. Выход""")
+
         ch = int(input(">"))
         if ch == 1:
             edit.view_document()
