@@ -13,7 +13,10 @@ class Temperature:
             return round(self.sumo2)
 
     def __str__(self):
-        return f"{self.calc_temp()}"
+        if self.tempo_atr == "f":
+            return f"{self.calc_temp()} гдусо по Цельсию"
+        elif self.tempo_atr == "c":
+            return f"{self.calc_temp()} гдусо по Фарингейту"
 
 
 atr = input("Что хотите сконвертировать Цельсьй или Фарингейт? (c / f):  \n")
