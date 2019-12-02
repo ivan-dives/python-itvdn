@@ -35,16 +35,10 @@ class Water:
             return f"Каждый хощник съел {s} травоядных"
 
     def __lt__(self, other):
-        if self.size < other.size:
-            return True
-        else:
-            return False
+        return self.size < other.size
 
     def __gt__(self, other):
-        if self.size > other.size:
-            return True
-        else:
-            return False
+        return self.size > other.size
 
 
 
