@@ -7,13 +7,10 @@ class Book:
         self.ganre = ganre
 
     def __eq__(self, other):
-        if self.author == other.author and \
+        return self.author == other.author and \
             self.name == other.name and \
             self.year == other.year and \
-            self.ganre == other.ganre:
-            return True
-        else:
-            return False
+            self.ganre == other.ganre
 
 
 
