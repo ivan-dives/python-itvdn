@@ -25,7 +25,5 @@ def main():
     # boo.get_review()
 
 
-
-
 if __name__ == '__main__':
     main()
