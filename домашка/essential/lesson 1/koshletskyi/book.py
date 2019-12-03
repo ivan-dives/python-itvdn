@@ -2,41 +2,34 @@
 # -*- coding: utf-8 -*_
 
 
-class Review:
-
-    def __init__(self, review=None):
-        self.review = review
-
-    def __str__(self):
-        if self.review:
-            return self.review
-        else:
-            return "No review on this book"
-
-
 class Book:
 
+    __reviews = []
 
-    def __init__(self, author, title, years, genre, review=None):
+    def __init__(self, author, title, years, genre):
         self.author = author
         self.title = title
         self.years = years
         self.genre = genre
-        self.__rev = review
-
 
     def __str__(self):
         return "This is book {} is " \
                "written by {} " \
                "in {} " \
-               "and genre is {} and review: {}".format(self.title, self.author, self.years, self.genre , self.__rev)
+               "and genre is {}".format(self.title, self.author, self.years, self.genre)
 
+    def add_review(self, review):
+        self.__reviews.append(review)
 
-rev = Review()
-rev1 = Review("Good")
+    def get_review(self):
+        print(*self.__reviews)
 
-book = Book("Tolstoy", "WAR", "1488", "Mystic", rev)
-book1 = Book("Hydoi", "Peasw", "740", "Takoe", rev1)
-print(book)
-print(book1)
+    def get_author(self):
+        return self.author
+
+    def __eq__(self, other):
+        return self.author == other.author \
+               and self.title.lower() == other.title.lower() \
+               and self.years == other.years \
+               and self.genre.lower() == other.genre.lower()
 
