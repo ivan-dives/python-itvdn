@@ -13,7 +13,10 @@ class Reviews:
         self.reviews.append(text)
 
     def __str__(self):
-        return f"Reviews: {self.reviews}"
+        if self.reviews:
+            return f"Reviews: {self.reviews}"
+        else:
+            return 'Book has no reviews'
 
 
 class Book:
