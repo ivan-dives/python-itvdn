@@ -6,6 +6,8 @@
 
 def prime(n):
    d = 2
+   if n == 1:
+       n = False
    while n % d != 0:
        d += 1
    return d == n
