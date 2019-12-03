@@ -8,14 +8,14 @@ class Car:
     max_speed = 150  # k/h
 
     def __str__(self):
-        return f'{self.max_speed=}'
+        return f'{self.max_speed}'
 
 
 class House:
     capacity = 6  # people
 
     def __str__(self):
-        return f'{self.capacity=}'
+        return f'{self.capacity}'
 
 
 class CamperVan(Car, House):
@@ -23,7 +23,7 @@ class CamperVan(Car, House):
     capacity = 4
 
     def __str__(self):
-        return f'{self.capacity=}, {self.max_speed=}'
+        return f'{self.capacity}, {self.max_speed}'
 
 
 volvo = Car()
