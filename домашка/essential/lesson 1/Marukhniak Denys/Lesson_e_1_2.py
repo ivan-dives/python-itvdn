@@ -4,23 +4,27 @@
 
 
 class Reviews:
-    reviews = []
+    def __init__(self, reviews=None):
+        if reviews is None:
+            reviews = []
+        self.reviews = reviews
 
     def add_review(self, text):
         self.reviews.append(text)
 
     def __str__(self):
-        return f"Reviews: {self.reviews}"
+        if self.reviews:
+            return f"Reviews: {self.reviews}"
+        else:
+            return 'Book has no reviews'
 
 
 class Book:
-    reviews = [Reviews()]
-
-    def __init__(self, new_authors_name, new_name, new_publication, new_genre):
-        self.authors_name = new_authors_name
-        self.name = new_name
-        self.year_of_publication = new_publication
-        self.genre = new_genre
+    def __init__(self, authors_name, name, publication, genre):
+        self.authors_name = authors_name
+        self.name = name
+        self.year_of_publication = publication
+        self.genre = genre
 
     def __str__(self):
         return f"Author's name: {self.authors_name}\n" \
@@ -40,7 +44,7 @@ class Book:
 id_b = [
     Book('Виктор Пелевин', 'Чапаев и Пустота', '1996', 'Фантастика'),
     Book('Стивен Кинг', 'Сияние', '1977', 'Ужасы'),
-    Book('Стивен Кинг', 'Зелёная миля', '1996', 'Фэнтези')
+    Book('Стивен Кинг', 'Зелёная миля', '1996', 'Фэнтези'),
 ]
 id_r = [Reviews(), Reviews(), Reviews()]
 while True:

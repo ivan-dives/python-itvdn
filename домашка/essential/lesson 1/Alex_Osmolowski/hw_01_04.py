@@ -16,12 +16,16 @@ class LandPlot:
         self.width = width
         self.price = price
         self.address = address
+        print("Приветствую вас! Я - это:")
 
     def __getattr__(self, item):
         if item == "size_in_ga":
             return (self.length*self.width)/10000
         else:
             return "пока информация отсутсвует"
+
+    def __len__(self):
+        return len(str(self.length))+len(str(self.width))+len(str(self.price))+len(self.address)
 
     def __bool__(self):
         return self.length > 0 and self.width > 0 and self.price > 0 and self.address.strip() != ""
@@ -32,8 +36,10 @@ class LandPlot:
     def __eq__(self, other):
         if not isinstance(other, LandPlot):
             return False
-        return self.address == other.address and self.width == other.width and \
-               self.length == other.width and self.price == other.price
+        return self.address == other.address and \
+               self.width == other.width and \
+               self.length == other.length and \
+               self.price == other.price
 
     def __ne__(self, other):
         if not isinstance(other, LandPlot):
@@ -45,13 +51,16 @@ class LandPlot:
                     self.price != other.price
 
     def __str__(self):
-        __frm_tmpl = "Земельный участок по адресу:\n{}\nДлина: {} м\nШирина: {} м\nРазмер: {}га\nЦена: ${}"
-        return __frm_tmpl.format(self.address, self.length, self.width, self.size_in_ga, self.price)
+        __frm_tmpl = "Земельный участок по адресу:\n{}\nДлина: {} м\nШирина: {} м\nРазмер: {}га\nЦена: ${}" + \
+            "\n Size of object type of {} = {}"
+        return __frm_tmpl.format(self.address, self.length, self.width, self.size_in_ga, self.price, type(self), len(self))
+
+    def __del__(self):
+        print("А теперь я прощаюсь с вами!")
 
 
 def main():
     lnd = LandPlot(100, 50, 1500, "Переяслав-Хмельницкий район")
-    lnd_copy = LandPlot(100, 50, 1500, "Переяслав-Хмельницкий район")
     # lnd_copy = lnd
     if lnd:
         print(lnd)
@@ -59,6 +68,7 @@ def main():
         print("Странный участок!")
     print("Площадь участка: {} кв. м".format(int(lnd)))
 
+    lnd_copy = LandPlot(100, 50, 1500, "Переяслав-Хмельницкий район")
     print()
     if lnd_copy:
         print(lnd_copy)
