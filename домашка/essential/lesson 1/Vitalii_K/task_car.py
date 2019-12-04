@@ -63,7 +63,7 @@ d.cars.append(c4)
 
 print("Hello there! I bet you've always dreamed...\n"\
       'about your own brand new (or not so) shiny muscle car...\n'\
-      f"And you know what? You've come to the right place!\n"\
+      "And you know what? You've come to the right place!\n"\
       f'Here at "{d}" we have all your heart will ever desire...\n'\
       'Damn! That must be the luckiest day of your life!\n'\
       '*You can also sell your car for a good price (probably)*\n'
