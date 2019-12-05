@@ -13,7 +13,8 @@ Middle       Middle2       Middle3
 
 
 class Top:
-    pass
+    def __init__(self):
+        print("Top")
 
 class Top2:
     pass
@@ -25,7 +26,8 @@ class Middle2(Top, Top2):
     pass
 
 class Middle3(Top2):
-    pass
+    def __init__(self):
+        print("Middle3")
 
 class Bottom(Middle, Middle2, Middle3):
     pass
