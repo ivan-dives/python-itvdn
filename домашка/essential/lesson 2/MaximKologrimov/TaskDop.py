@@ -44,20 +44,20 @@ class OldCar(Cars):
 
 test_car = Cars(100)
 print(f'TestCar {id(test_car)}, {test_car}')
-print('* * * * * * * * * * * * * * * * * * * * * * * *')
+print()
 mazda = Light(Faster)
 mazda.change_speed(200)
 mazda.spec('Black')
 #mazda.sum(100000)
 print(f'Mazda id {id(mazda.speed)}, {mazda.speed}, {mazda}, {mazda.color}')
-print('* * * * * * * * * * * * * * * * * * * * * * * *')
+print()
 
 bmw = Heavy(Lux)
 bmw.change_speed(340)
 bmw.spec('White')
 bmw.sum(1000000)
 print(f'BMW id {id(bmw.speed)}, {bmw.speed}, {bmw}, {bmw.price}')
-print('* * * * * * * * * * * * * * * * * * * * * * * *')
+print()
 
 old = OldCar(Cars)
 old.change_speed(40)
