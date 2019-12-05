@@ -1,3 +1,125 @@
+
+class Square(IsoscelesShape):
+    def draw(self):
+        for _ in range(self.side):
+            print('*' * self.side)
+
+s =
+
+exit()
+
+class Parent:
+    def whoami(self):
+        print("I am parent")
+        super().whoami()
+
+
+class Child:
+    def whoami(self):
+        print("I am child")
+        print("now I'll ask my parent")
+        #Parent.whoami(None)
+
+
+c = Child()
+c.whoami()
+exit()
+
+class UnpaidVersion:
+    def edit_document(self):
+        print("cannot edit, please buy")
+
+class PaidVersion(UnpaidVersion):
+    def edit_document(self):
+        print("ok, I am paid version")
+
+p = input("please enter password ")
+editor = PaidVersion() if p == '123' else UnpaidVersion()
+editor.edit_document()
+
+exit()
+
+
+class Klass:
+    __temp = 10
+
+    def __init__(self, temp=20):
+        self.__temp = temp
+
+    def get_temp(self):
+        return self.__temp
+
+c = Klass()
+print(c.get_temp())
+
+exit()
+
+class Celsius:
+    def __init__(self, temperature = 0):
+        self.set_temperature(temperature)
+
+    def to_fahrenheit(self):
+        tmp = self.get_temperature()
+        tmp *= 1.8
+        tmp += 32
+        return tmp
+        #return (self.get_temperature() * 1.8) + 32
+
+    # new update
+    def get_temperature(self):
+        return self._temperature
+
+    def set_temperature(self, value):
+        self._temperature = value
+
+c = Celsius()
+f = c.to_fahrenheit()
+print(f)
+
+exit()
+
+
+class C:
+    tmp = [10]
+
+class Klass:
+    tmp = [10]
+
+    #def __init__(self, newtmp=20):
+    #    self.tmp = [newtmp]
+    #    self.tmp = 20
+
+    def __init__(self, new_tmp):
+        #new_tmp = 20
+        self.new_tmp = tmp
+
+c = Klass(40)
+print(id(c.tmp))
+print(c.tmp)
+print(c.new_tmp)
+d = Klass(40)
+print(id(d.tmp))
+print(d.tmp)
+
+exit()
+
+#c = C()
+#c.tmp.append(20)
+#d = C()
+#print(d.tmp)
+
+#exit()
+
+c = Klass()
+print(id(c.tmp))
+d = Klass()
+print(id(d.tmp))
+e = Klass()
+print(id(e.tmp))
+print(id(Klass.tmp))
+
+exit()
+
 class Vehicle:
     color = 'white'
 
