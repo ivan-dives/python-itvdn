@@ -63,3 +63,10 @@ old = OldCar(Cars)
 old.change_speed(40)
 print(f'OldCar id {id(old)}, {old}')
 
+print()
+
+def main():
+    print(Light.mro())
+
+if __name__ == '__main__':
+    main()
