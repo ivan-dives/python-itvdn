@@ -15,8 +15,8 @@ class Button(Rectungle):
 
 while True:
     print("Введите кординаты точки на которую хотите нажать")
-    x = int(input("Введите цыфру от 0 до 1920: "))
-    y = int(input("Введите цыфру от 0 до 1080: "))
+    x = int(input("Введите цифру от 0 до 1920: "))
+    y = int(input("Введите цифру от 0 до 1080: "))
     mouse = Button(x, y)
     mouse.press()
     print("Если хотите закончить нажмите e")
