@@ -2,13 +2,13 @@ from timeit import default_timer as timer
 
 
 def time_of_work(f):
+    start = timer()
 
     def time(number):
-        start = timer()
         f(number)
         end = timer()
-        print(end - start)
-        return f(number)
+        time_of_operation = (end - start)
+        return f'Time of operation {time_of_operation} in seconds'
     return time
 
 
