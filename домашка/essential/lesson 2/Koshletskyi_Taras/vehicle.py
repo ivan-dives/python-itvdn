@@ -6,11 +6,7 @@ class Vehicle:
 
     __count_number = 0
 
-    def __init__(self, maker, model, color, year, max_speed=80):
-        self.maker = maker
-        self.model = model
-        self.color = color
-        self.year = year
+    def __init__(self, max_speed=80):
         self.__speed = 0
         self.__engine = False
         self.__max_speed = max_speed
@@ -44,9 +40,8 @@ class Vehicle:
             print("Please turn on engine")
 
     def __str__(self):
-        return f'This is a type {self.__class__.__name__} of Vehicle, My {self.get_engine()}, ' \
-               f'my max speed is {self.__max_speed} ' \
-               f'I produced by {self.maker} in {self.year}, model is {self.model}'
+        return f"This is a type {self.__class__.__name__} of Vehicle, My {self.get_engine()}, " \
+               f"my max speed is {self.__max_speed} "
 
 
 
