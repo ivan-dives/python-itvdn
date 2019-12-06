@@ -2,10 +2,11 @@ from datetime import datetime
 
 def how_long(func):
     def wrapper(*args, **kwargs):
+
         start = datetime.now()
         result = func(*args, **kwargs)
-        print(datetime.now() - start)
-        return result
+        delta_time = datetime.now() - start
+        return delta_time
     return wrapper
 
 
@@ -26,5 +27,5 @@ def fac(n):
         return 1
     return fac(n - 1) * n
 
-print(fac(5))#(int(input('_'))))
-print(fib(5))#(int(input('_'))))
+print(fac(15))#(int(input('_'))))
+print(fib(15))#(int(input('_'))))

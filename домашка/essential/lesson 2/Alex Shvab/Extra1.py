@@ -3,23 +3,35 @@ import  time
 fib_list = [1, 2]
 fac_list = []
 
-def timer(f):
+# def timer(f):
+#
+#     def tmp(n):
+#         start = time.time()
+#         f(n)
+#         end = time.time()
+#         timer = (end - start) * 1000
+#         print(f"Time: {timer} milliseconds")
+#     return  tmp
 
-    def tmp(n):
+class Timer:
+    def __init__(self, f):
+        self.func = f
+
+    def __call__(self, *param):
         start = time.time()
-        f(n)
+        self.func(*param)
         end = time.time()
         timer = (end - start) * 1000
-        print(f"Time: {timer} milliseconds")
-    return  tmp
+        print(f"Time: {timer}")
 
 
-@timer
+
+@Timer
 def fib(x):
     for i in range (x - 2):
         fib_list.append(fib_list[i] + fib_list[i+1])
 
-@timer
+@Timer
 def factorial(x):
     res = 1
     if x >= 1:
