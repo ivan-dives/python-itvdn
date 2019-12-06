@@ -5,10 +5,12 @@ def time_of_work(f):
     start = timer()
 
     def time(number):
-        f(number)
-        end = timer()
-        time_of_operation = (end - start)
-        return f'Time of operation {time_of_operation} in seconds'
+        if isinstance(f(number), int):
+            print(f'Result: {f(number)}')
+        else:
+            end = timer()
+            time_of_operation = (end - start)
+            return f'Time of operation {time_of_operation} seconds'
     return time
 
 
@@ -33,5 +35,8 @@ def fib(s):
 memoize_f = [0, 1, 2, 3]
 memoize = [1, 1]
 
+print(f'Factorial: {5}!')
 print(factorial(5))
+print()
+print(f'Fibonacci:')
 print(fib(5))
