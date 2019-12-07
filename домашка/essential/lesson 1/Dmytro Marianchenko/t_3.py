@@ -20,10 +20,10 @@ def main():
     calc = Temperature(tempo)
     if arg1 == "f" or "F":
         result1 = calc.tempo_to_c
-        print(f"{round(result1)} C")
+        print(f"{t} = {round(result1)} C")
     elif arg1 == "c" or "C":
         result1 = calc.tempo_to_f
-        print(f"{round(result1)} F")
+        print(f"{t} = {round(result1)} F")
 
 
 if __name__ == '__main__':
