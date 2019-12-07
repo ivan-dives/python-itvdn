@@ -6,4 +6,13 @@ import car
 
 class Bus(car.Car):
 
-    pass
+    __route = []
+
+    def add_route(self):
+        pass
+
+    def remove_route(self):
+        pass
+
+    def show_route(self):
+        pass

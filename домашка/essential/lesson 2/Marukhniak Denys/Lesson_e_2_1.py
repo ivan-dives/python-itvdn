@@ -35,13 +35,8 @@ class ProEditor(Editor):
 
 
 license_pass = input('Введите лицензионный ключ: ')
-if license_pass == 'password':
-    print('Введен верный лицензионный ключ')
-    doc = ProEditor()
-    doc.view_document()
-    doc.edit_document()
-else:
-    print('Введен неверный лицензионный ключ')
-    doc = Editor()
-    doc.view_document()
-    doc.edit_document()
+
+doc = ProEditor() if license_pass == 'password' else Editor()
+doc.view_document()
+doc.edit_document()
+

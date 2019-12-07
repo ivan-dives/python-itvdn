@@ -1,26 +1,30 @@
 class Temperature:
 
-    def __init__(self, tempo, tempo_atr):
-        self.tempo_atr = tempo_atr
+    def __init__(self, tempo):
         self.tempo = tempo
-        self.sumo1 = (self.tempo - 32) / 1.8
-        self.sumo2 = (self.tempo + 32) * 1.8
 
-    def calc_temp(self):
-        if self.tempo_atr == "f":
-            return round(self.sumo1)
-        elif self.tempo_atr == "c":
-            return round(self.sumo2)
+    @property
+    def tempo_to_c(self):
+        return (self.tempo - 32) / 1.8
 
-    def __str__(self):
-        if self.tempo_atr == "f":
-            return f"{self.calc_temp()} гдусо по Цельсию"
-        elif self.tempo_atr == "c":
-            return f"{self.calc_temp()} гдусо по Фарингейту"
+    @property
+    def tempo_to_f(self):
+        return (self.tempo + 32) * 1.8
 
 
-atr = input("Что хотите сконвертировать Цельсьй или Фарингейт? (c / f):  \n")
-number = int(input("Введите значение температуры:  \n"))
-t1 = Temperature(number, atr)
-print(t1)
+def main():
+    t = input("Input temperature in format '10 c' or '10 f':\n>>  ")
+    container = t.split()
+    arg1 = container[1]
+    tempo = int(container[0])
+    calc = Temperature(tempo)
+    if arg1 == "f" or "F":
+        result1 = calc.tempo_to_c
+        print(f"{t} = {round(result1)} C")
+    elif arg1 == "c" or "C":
+        result1 = calc.tempo_to_f
+        print(f"{t} = {round(result1)} F")
 
+
+if __name__ == '__main__':
+    main()
