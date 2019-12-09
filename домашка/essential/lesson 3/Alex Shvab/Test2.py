@@ -66,7 +66,10 @@ while True:
     elif choose == 4:
         calc.div()
     elif choose == 5:
-        calc.pow()
+        try:
+            calc.pow()
+        except PowError as error:
+            print("Error", error)
     else:
         print("Exit")
         break
