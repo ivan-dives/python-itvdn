@@ -25,12 +25,13 @@ class Employee:
         try:
             self.year = incorrect_year(year_of_employment)
         except IncorrectYearOfEmployment as ex_year:
-            print('This year has not come.', end=' ')
+            print('This year has not come. Enter year of employment again: ', end=' ')
             while True:
                 try:
-                    self.year = int(input('Enter year of employment again: '))
+                    year_of_employment = int(input())
+                    self.year = incorrect_year(year_of_employment)
                     break
-                except ValueError as ex_year:
+                except ValueError and IncorrectYearOfEmployment as ex_year:
                     print('Incorrect data, try again.')
 
     def __repr__(self):
@@ -67,8 +68,8 @@ while True:
 
 nth = 0
 for employee_id in employees:
-    if employee_id.year > chosen_year:
+    if employee_id.year >= chosen_year:
         nth = 1
         print(employee_id)
 if nth == 0:
-    print(f'None of the employees were hired after {chosen_year}')
+    print(f'None of the employees were hired after {chosen_year} year')
