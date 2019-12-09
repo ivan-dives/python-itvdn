@@ -53,14 +53,15 @@ def main():
 
     while True:
         try:
-            coose_year = int(input("Enter year: "))
+            choose_year = int(input("Enter year: "))
             break
         except ValueError:
             print("Enter correct value")
 
     for worker in workers:
-        if worker.start_year >= coose_year:
+        if worker.start_work >= choose_year:
             print(worker)
+            print()
 
 
 if __name__ == "__main__":
