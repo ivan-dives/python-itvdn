@@ -12,8 +12,8 @@ class IncorrectYearOfEmployment(BaseException):
 
 def incorrect_year(year_check):
     if year_check > datetime.date.today().year:
-        ex_year = IncorrectYearOfEmployment('Error')
-        raise ex_year
+        ex_in_year = IncorrectYearOfEmployment('Error')
+        raise ex_in_year
     return year_check
 
 
@@ -25,14 +25,7 @@ class Employee:
         try:
             self.year = incorrect_year(year_of_employment)
         except IncorrectYearOfEmployment as ex_year:
-            print('This year has not come. Enter year of employment again: ', end=' ')
-            while True:
-                try:
-                    year_of_employment = int(input())
-                    self.year = incorrect_year(year_of_employment)
-                    break
-                except ValueError and IncorrectYearOfEmployment as ex_year:
-                    print('Incorrect data, try again.')
+            raise IncorrectYearOfEmployment
 
     def __repr__(self):
         return f"First name: {self.f_name}\n" \
@@ -53,6 +46,10 @@ while count:
         new_employee = Employee(f_name, s_name, dep, year)
     except ValueError as ex_num:
         print('Incorrect data for year, try again.')
+        continue
+    except IncorrectYearOfEmployment as ex_y:
+        print('This year has not come., try again.')
+        continue
     else:
         employees.append(new_employee)
         count -= 1
