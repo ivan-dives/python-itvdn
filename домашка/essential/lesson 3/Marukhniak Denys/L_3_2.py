@@ -14,7 +14,7 @@ class ArgumentIsZero(BaseException):
 
 def arg_is_zero(f, s, operation):
     if f == 0 or s == 0:
-        ex = ArgumentIsZero('Error by zero argument')
+        ex = ArgumentIsZero('Error by zero argument.')
         raise ex
     if operation == '+':
         return f + s
