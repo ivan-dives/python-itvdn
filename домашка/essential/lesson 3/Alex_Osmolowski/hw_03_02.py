@@ -10,14 +10,14 @@ class Calc:
         self.__oper_name = None
         self.__f_arg = None
         self.__s_arg = None
-        self.__operation_list = ["+","-","*","/","^", "exit"]
+        self.__operation_list = ["+", "-", "*", "/", "^", "exit"]
 
     def operation_input(self):  # ввод операции
         self.__oper_name = input("Введите операцию (+, -, *, /, ^) либо команду 'exit' для выхода: ").strip().lower()
         if not (self.__oper_name in self.__operation_list):
             raise NotImplementedError('введена неподдерживаемая операция')
 
-    def arguments_input(self): # ввод операндов
+    def arguments_input(self):  # ввод операндов
         self.__f_arg = float(input("Введите первое число: "))
         self.__s_arg = float(input("Введите второе число: "))
 
