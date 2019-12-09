@@ -4,10 +4,12 @@ class PowError(Exception):
 def timer(f):
     def tmp(n):
         try:
-            f(n)
+            r = f(n)
+            print(f"Result = {r}")
         except ArithmeticError as error:
             print("Error", error)
     return  tmp
+
 
 class Calc:
     def __init__(self, x=0, y=0):
@@ -36,6 +38,7 @@ class Calc:
             raise PowError("You can not pow 0 in neg value")
         else:
             return self.x ** self.y
+
 
 
 while True:
