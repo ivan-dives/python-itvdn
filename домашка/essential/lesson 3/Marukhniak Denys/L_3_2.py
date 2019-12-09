@@ -30,3 +30,5 @@ while True:
             print('Power of zero cannot be a negative number')
     elif op == 'end':
         break
+    else:
+        print('You have entered wrong command, try again.')
