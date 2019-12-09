@@ -1,7 +1,7 @@
 import operator
 
-
-
+class MyError(Exception):
+    pass
 
 def enter_operation():
     operation = input("Choose operation (+, -, *, /, ^) or type exit :")
@@ -20,10 +20,6 @@ def enter_operation():
     else:
         raise NotImplementedError("Incorrect operation")
 
-class MyError(ValueError, ArithmeticError):
-    def __init__(self):
-        Exception.__init__(self, "well, that rather badly didnt it?")
-
 
 def main():
     while True:
@@ -32,9 +28,17 @@ def main():
             a = int(input("Enter first operand: "))
             b = int(input("Enter second operand: "))
             result = operation(a, b)
-            break
-        except MyError as e:
-            print(f"LOH")
+        except MyError as error:
+            print("Error", error)
+        except ZeroDivisionError:
+            print("Please don't divide by zero")
+        except ValueError:
+            print("Please use only numbers")
+        else:
+            print(f"{result=}")
+        finally:
+            print()
+
 
 if __name__ == '__main__':
     main()
