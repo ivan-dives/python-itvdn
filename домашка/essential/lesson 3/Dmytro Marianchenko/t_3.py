@@ -1,4 +1,3 @@
-
 def checker(name, year, company_bd):
     if year > company_bd:
         print(f"{name} is not an employee of the company")
@@ -26,14 +25,6 @@ def year_form(x):
             print("year should not contain a letter or any symbols except numbers")
 
 
-# def resume(personal, pers):
-#     sw = input("Do you wont to add an another person? y/n\n>> ")
-#     if sw == "y":
-#         return main()
-#     elif sw == "n":
-#         return exit()
-
-
 def validation(x, company_bd):
     for i in x:
         if company_bd >= i[3]:
@@ -55,7 +46,6 @@ def main():
     year = year_form(year)
     pers = [name, surname, force, int(year)]
     personal.append(pers)
-    # resume(personal, pers)
     while True:
         sw = input("Do you wont to add an another person? y/n\n>> ")
         if sw == "y":
