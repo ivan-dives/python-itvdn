@@ -19,6 +19,7 @@ def name_form(x):
 def year_form(x):
     while x is None:
         try:
+            print()
             x = int(input(f"Please enter:\n>> "))
             return x
         except ValueError:
@@ -30,7 +31,7 @@ def validation(x, company_bd):
         if company_bd >= i[3]:
             print(f"{i[0]} {i[1]} is not а company member")
         else:
-            print(f"{i[0]} {i[1]} work in {i[2]} department sins {i[3]}")
+            print(f"{i[0]} {i[1]} work in {i[2]} department sins {i[3]} year")
 
 
 def main():
@@ -43,6 +44,7 @@ def main():
     print("Enter a surname of worker")
     surname = name_form(surname)
     force = input("Enter a department of company:\n>> ")
+    print("Enter a year of start working in company")
     year = year_form(year)
     pers = [name, surname, force, int(year)]
     personal.append(pers)
