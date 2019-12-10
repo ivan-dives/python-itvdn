@@ -1,6 +1,6 @@
 def operations(a, b):
     operation = input("What operation do you need:\n1. If add enter '+' \n2. If subtract enter '-' \n3. If "
-                      "multiplication enter '*' \n4. If division enter '/' \n>>  ")
+                      "multiplication enter '*' \n4. If division enter '/'\n5. If exponentiation enter '^' \n>>  ")
     if operation == "+":
         r = a + b
         return r
@@ -17,9 +17,17 @@ def operations(a, b):
         except ZeroDivisionError:
             r = "no result"
             return r
+    elif operation == "^":
+        try:
+            r = a ** b
+            return r
+        except ZeroDivisionError:
+            r = "no result"
+            return r
     else:
         print("Wrong operation choice... try again")
         operations(a, b)
+
 
 
 def inp_nums(x):
