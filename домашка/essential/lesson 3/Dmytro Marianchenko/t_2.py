@@ -30,8 +30,6 @@ def operations(a, b):
                 return r
         else:
             print("Wrong operation choice... try again")
-            continue
-
 
 
 def inp_nums(x):
