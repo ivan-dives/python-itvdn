@@ -1,7 +1,7 @@
 class PowError(Exception):
     pass
 
-def timer(f):
+def errors(f):
     def tmp(n):
         try:
             r = f(n)
@@ -16,23 +16,23 @@ class Calc:
         self.x = x
         self.y = y
 
-    @timer
+    @errors
     def add(self):
         return self.x + self.y
 
-    @timer
+    @errors
     def sub(self):
         return  self.x - self.y
 
-    @timer
+    @errors
     def mul(self):
         return  self.x * self.y
 
-    @timer
+    @errors
     def div(self):
         return  self.x / self.y
 
-    @timer
+    @errors
     def pow(self):
         if self.x == 0 and self.y < 0:
             raise PowError("You can not pow 0 in neg value")
