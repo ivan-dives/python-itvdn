@@ -29,7 +29,6 @@ def operations(a, b):
         operations(a, b)
 
 
-
 def inp_nums(x):
     while x is None:
         try:
