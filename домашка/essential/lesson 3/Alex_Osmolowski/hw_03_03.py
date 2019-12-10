@@ -61,7 +61,7 @@ class Worker:
         self.initial_year = initial_year
 
     def __str__(self):
-        return f'{self.first_name}\t\t\t{self.last_name}\t\t\t{self.job_title}\t\t\t{self.initial_year}'
+        return f'{self.first_name} {self.last_name}, {self.job_title}, {self.initial_year}'
 
     @staticmethod
     def read_worker():
