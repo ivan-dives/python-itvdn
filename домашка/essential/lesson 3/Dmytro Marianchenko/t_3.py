@@ -19,7 +19,6 @@ def name_form(x):
 def year_form(x):
     while x is None:
         try:
-            print()
             x = int(input(f"Please enter:\n>> "))
             return x
         except ValueError:
@@ -54,7 +53,7 @@ def main():
             break
         elif sw == "n":
             validation(personal, company_bd)
-            print("to exit press 'Enter'...")
+            input("Pres 'Enter' to exit...")
             exit()
     main()
 
