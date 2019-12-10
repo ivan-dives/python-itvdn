@@ -1,4 +1,7 @@
 def operations(a, b):
+    """
+    Operations with input numbers
+    """
     operation = input("What operation do you need:\n1. If add enter '+' \n2. If subtract enter '-' \n3. If "
                       "multiplication enter '*' \n4. If division enter '/'\n5. If exponentiation enter '^' \n>>  ")
     if operation == "+":
@@ -30,6 +33,9 @@ def operations(a, b):
 
 
 def inp_nums(x):
+    """
+    Rule of initialisation inserted number
+    """
     while x is None:
         try:
             x = float(input("enter a number:\n>> "))
@@ -39,6 +45,9 @@ def inp_nums(x):
 
 
 def main():
+    """
+    Main program
+    """
     num1 = None
     num2 = None
     num1 = inp_nums(num1)
