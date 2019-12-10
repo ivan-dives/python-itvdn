@@ -6,14 +6,17 @@
 import datetime
 
 
-class IncorrectYearOfEmployment(BaseException):
+class IncorrectYearOfEmployment(Exception):
     pass
 
 
 def incorrect_year(year_check):
     if year_check > datetime.date.today().year:
-        ex_in_year = IncorrectYearOfEmployment('Error')
-        raise ex_in_year
+        #ex_in_year = IncorrectYearOfEmployment('Error')
+        #print(f"created exception {id(ex_in_year)}")
+        #raise ex_in_year
+        #return None
+        raise IncorrectYearOfEmployment("error")
     return year_check
 
 
@@ -22,10 +25,23 @@ class Employee:
         self.f_name = first_name
         self.s_name = second_name
         self.dep = department
+
+        #if year_of_employment > datetime.date.today().year:
+        #    raise IncorrectYearOfEmployment("error")
+        #else:
+        #    self.year = year_of_employment
+
         try:
             self.year = incorrect_year(year_of_employment)
         except IncorrectYearOfEmployment as ex_year:
-            raise IncorrectYearOfEmployment
+            print(f"caught exception {id(ex_year)}")
+            #raise IncorrectYearOfEmployment
+            #raise ex_year
+            raise
+
+    def __function(self):
+        return None
+
 
     def __repr__(self):
         return f"First name: {self.f_name}\n" \
@@ -48,6 +64,8 @@ while count:
         print('Incorrect data for year, try again.')
         continue
     except IncorrectYearOfEmployment as ex_y:
+        print(f"caught exception in __main__ {id(ex_y)}")
+        print(ex_y)
         print('This year has not come., try again.')
         continue
     else:
