@@ -2,34 +2,36 @@ def operations(a, b):
     """
     Operations with input numbers
     """
-    operation = input("What operation do you need:\n1. If add enter '+' \n2. If subtract enter '-' \n3. If "
-                      "multiplication enter '*' \n4. If division enter '/'\n5. If exponentiation enter '^' \n>>  ")
-    if operation == "+":
-        r = a + b
-        return r
-    elif operation == "-":
-        r = a - b
-        return r
-    elif operation == "*":
-        r = a * b
-        return r
-    elif operation == "/":
-        try:
-            r = a / b
+    while True:
+        operation = input("What operation do you need:\n1. If add enter '+' \n2. If subtract enter '-' \n3. If "
+                          "multiplication enter '*' \n4. If division enter '/'\n5. If exponentiation enter '^' \n>>  ")
+        if operation == "+":
+            r = a + b
             return r
-        except ZeroDivisionError:
-            r = "no result"
+        elif operation == "-":
+            r = a - b
             return r
-    elif operation == "^":
-        try:
-            r = a ** b
+        elif operation == "*":
+            r = a * b
             return r
-        except ZeroDivisionError:
-            r = "no result"
-            return r
-    else:
-        print("Wrong operation choice... try again")
-        operations(a, b)
+        elif operation == "/":
+            try:
+                r = a / b
+                return r
+            except ZeroDivisionError:
+                r = "no result"
+                return r
+        elif operation == "^":
+            try:
+                r = a ** b
+                return r
+            except ZeroDivisionError:
+                r = "no result"
+                return r
+        else:
+            print("Wrong operation choice... try again")
+            continue
+
 
 
 def inp_nums(x):
