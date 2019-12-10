@@ -15,7 +15,7 @@ try:
         raise MyError (f'Ну куда ты так разогнался, {a} больше чем 300!')
 except ValueError:
     print(f'{a} - это вообще строка, просили число, число!')
-except MyError as me:
-    print(me)
+except MyError as my:
+    print(my)
 else:
     print(a,'Ты справился!')
