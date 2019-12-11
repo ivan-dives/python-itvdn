@@ -1,0 +1,10 @@
+# Задание 3
+def count_staircase(n):
+       if n == 1:
+           return 1
+       if n ==2: 
+           return 2
+       return count_staircase(n-1) + count_staircase(n-2)
+       
+index = int(input('Set the step: '))
+print(count_staircase(index), 'ways to climb a given step')
