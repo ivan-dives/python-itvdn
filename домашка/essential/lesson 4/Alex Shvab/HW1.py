@@ -5,7 +5,6 @@ class C:
         self.index = len(str) - 1
 
     def __iter__(self):
-        #return Pointer(self)
         return self
 
     def __next__(self):
@@ -19,6 +18,8 @@ class C:
 
 str = input("Enter some string: ")
 c = C(str)
-
+res = ""
 for x in c:
-    print(x)
+    res += x
+
+print(res)
