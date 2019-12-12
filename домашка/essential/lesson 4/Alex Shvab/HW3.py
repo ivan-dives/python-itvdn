@@ -74,6 +74,43 @@ class MyList(object):
 
         self._length += 1
 
+    def clear(self):
+        """Очистка списка"""
+        node = self._head
+        while node is not None:
+            node_next = node.next
+            del node
+            node = node_next
+
+        self._head = None
+        self._tail = None
+        self._length = 0
+
+    def add_index(self, index, value):
+        if 0 > index > len(self):
+            raise IndexError ("Index out of range")
+        if index == len(self):
+            self.append(value)
+        else:
+            val = MyList._ListNode(value)
+            res = []
+            node = self._head
+            for i in range(len(self)):
+                node_next = node.next
+                if i == index:
+                    res.append(val)
+                    continue
+                res.append(node)
+                node = node_next
+
+            self.clear()
+            for i in res:
+                v = MyList._ListNode(value)
+                self.append(v)
+
+
+
+
     def __len__(self):
         return self._length
 
@@ -86,7 +123,7 @@ class MyList(object):
         return 'MyList([{}])'.format(', '.join(map(repr, self)))
 
     def __getitem__(self, index):
-        if not 0 <= index < len(self):
+        if not 0 < index < len(self):
             raise IndexError('list index out of range')
 
         node = self._head
@@ -109,6 +146,12 @@ def main():
     # Вывод самого списка
     print(my_list)
 
+    my_list.add_index(1, 10)
+    print(my_list)
+    print()
+
+    my_list.clear()
+    print(my_list)
     print()
 
     # Обход списка
