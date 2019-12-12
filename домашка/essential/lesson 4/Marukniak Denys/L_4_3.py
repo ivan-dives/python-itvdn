@@ -161,13 +161,14 @@ def main():
 
     # Добавления элемента в конец списка
     my_list.append(7)
-    my_list.append(13)
+    my_list.append(17)
     print(my_list)
 
     # Добавления элемента в произвольное место списка
     my_list.add_i(25, 2)
     my_list.add_i(1, 0)
     my_list.add_i(3, 1)
+    my_list.add_i(13, 3)
     print(my_list)
 
     # Удаления элемента из конца и произвольного места списка
