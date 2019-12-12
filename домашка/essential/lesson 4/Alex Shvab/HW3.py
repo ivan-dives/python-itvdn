@@ -88,28 +88,19 @@ class MyList(object):
 
     def add_index(self, index, value):
         if 0 > index > len(self):
-            raise IndexError ("Index out of range")
+            raise IndexError("Index out of range")
         if index == len(self):
             self.append(value)
         else:
-            val = MyList._ListNode(value)
             res = []
-            node = self._head
             for i in range(len(self)):
-                node_next = node.next
                 if i == index:
-                    res.append(val)
-                    continue
-                res.append(node)
-                node = node_next
+                    res.append(value)
+                res.append(self[i])
 
             self.clear()
-            for i in res:
-                v = MyList._ListNode(value)
-                self.append(v)
-
-
-
+            for i in range(len(res)):
+                self.append(res[i])
 
     def __len__(self):
         return self._length
@@ -123,7 +114,7 @@ class MyList(object):
         return 'MyList([{}])'.format(', '.join(map(repr, self)))
 
     def __getitem__(self, index):
-        if not 0 < index < len(self):
+        if not 0 <= index < len(self):
             raise IndexError('list index out of range')
 
         node = self._head
@@ -145,8 +136,9 @@ def main():
 
     # Вывод самого списка
     print(my_list)
+    print()
 
-    my_list.add_index(1, 10)
+    my_list.add_index(2, 10)
     print(my_list)
     print()
 
