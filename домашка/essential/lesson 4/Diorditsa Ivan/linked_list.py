@@ -1,3 +1,11 @@
+class C:
+    _var = 20
+
+c = C()
+print(c._var)
+
+exit()
+
 class Slots:
     __slots__ = ('prev', 'next')
 
