@@ -12,10 +12,11 @@ def is_simple_num(n):
     elif n == 2:
         return True
     else:
-        for i in range(2, n-1):
+        for i in range(2, n):
             if n % i == 0:
                 return False
         return True
+
 
 def main():
     lst_str = input("Задайте через запятую границы промежутка целых положительных чисел: ").split(",")
@@ -47,6 +48,7 @@ def main():
         for x in simple_lst:
             res *= x
         print("Произведение простых чисел  заданном промежутке [{}, {}] = {} ".format(beg, end, res))
+
 
 if __name__ == '__main__':
     main()
