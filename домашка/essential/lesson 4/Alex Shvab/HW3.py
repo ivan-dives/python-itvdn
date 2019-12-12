@@ -102,6 +102,32 @@ class MyList(object):
             for i in range(len(res)):
                 self.append(res[i])
 
+    def del_index(self, index):
+        index -= 1
+        if 0 > index > len(self):
+            raise IndexError("Index out of range")
+        else:
+            res = []
+            for i in range(len(self)):
+                if i == index:
+                    continue
+                res.append(self[i])
+
+            self.clear()
+            for i in range(len(res)):
+                self.append(res[i])
+
+    def del_last(self):
+            res = []
+            for i in range(len(self)):
+                if i == len(self) - 1:
+                    break
+                res.append(self[i])
+
+            self.clear()
+            for i in range(len(res)):
+                self.append(res[i])
+
     def __len__(self):
         return self._length
 
@@ -139,6 +165,14 @@ def main():
     print()
 
     my_list.add_index(2, 10)
+    print(my_list)
+    print()
+
+    my_list.del_index(1)
+    print(my_list)
+    print()
+
+    my_list.del_last()
     print(my_list)
     print()
 
