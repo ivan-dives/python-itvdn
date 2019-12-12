@@ -80,6 +80,42 @@ class MyList(object):
 
         self._length += 1
 
+    def clear(self):
+        """Очистка списка"""
+
+        self._length = 0
+        self._head = None
+        self._tail = None
+
+    def add_i(self, element, index):
+        """Добавления элемента в произвольное место списка"""
+
+        # Создание элемента списка
+        node = MyList._ListNode(element)
+
+        if index == self._length:
+            self.append(element)
+        elif index == 0:
+            self._head.prev = node
+            node.next = self._head
+            self._head = node
+        elif 1 <= index < self._length:
+            tmp = self._head
+            for _ in range(index):
+                tmp = tmp.next
+            tmp_prev = tmp.prev
+            tmp_prev.next = node
+            node.prev = tmp_prev
+            node.next = tmp
+            tmp.prev = node
+        else:
+            raise IndexError('list index out of range')
+        self._length += 1
+
+    # def del_i(self, element):
+    #
+    #     self._length -= 1
+
     def __len__(self):
         return self._length
 
@@ -104,11 +140,6 @@ class MyList(object):
     def __iter__(self):
         return MyList._Iterator(self)
 
-    # def clear(self):
-
-    # def add_i(self):
-
-    # def del_i(self):
 
 def main():
     # Создание списка
@@ -122,11 +153,23 @@ def main():
 
     # Обход списка
     for element in my_list:
-        print(element)
+        print(element, end=' ')
 
     # Очистка списка
+    my_list.clear()
+    print(my_list)
+
+    # Добавления элемента в конец списка
+    my_list.append(7)
+    my_list.append(17)
+    print(my_list)
 
     # Добавления элемента в произвольное место списка
+    my_list.add_i(25, 2)
+    my_list.add_i(1, 0)
+    my_list.add_i(3, 1)
+    my_list.add_i(13, 3)
+    print(my_list)
 
     # Удаления элемента из конца и произвольного места списка
 

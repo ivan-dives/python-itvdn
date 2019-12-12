@@ -8,7 +8,7 @@ def gen_rev(some_list):
                 break
             else:
                 pass
-        except StopIteration:
+        except IndexError:
             raise StopIteration
 
 
