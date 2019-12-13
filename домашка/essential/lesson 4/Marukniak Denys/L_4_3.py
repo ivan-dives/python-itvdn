@@ -99,6 +99,7 @@ class MyList(object):
             self._head.prev = node
             node.next = self._head
             self._head = node
+            self._length += 1
         elif 1 <= index < self._length:
             tmp = self._head
             for _ in range(index):
@@ -108,13 +109,38 @@ class MyList(object):
             node.prev = tmp_prev
             node.next = tmp
             tmp.prev = node
+            self._length += 1
         else:
             raise IndexError('list index out of range')
-        self._length += 1
 
-    # def del_i(self, element):
-    #
-    #     self._length -= 1
+    def del_i(self, index):
+        """Удаления элемента из конца и произвольного места списка"""
+
+        if 1 <= index < self._length-1:
+            tmp = self._head
+            for _ in range(index):
+                tmp = tmp.next
+            tmp_prev = tmp.prev
+            tmp_next = tmp.next
+            tmp_prev.next = tmp_next
+            tmp_next.prev = tmp_prev
+            tmp.next = None
+            tmp.prev = None
+        elif index == 0:
+            tmp = self._head
+            tmp = tmp.next
+            self._head.next = None
+            tmp.prev = None
+            self._head = tmp
+        elif index == self._length-1:
+            tmp = self._tail
+            tmp = tmp.prev
+            self._tail.prev = None
+            tmp.next = None
+            self._tail = tmp
+        else:
+            raise IndexError('list index out of range')
+        self._length -= 1
 
     def __len__(self):
         return self._length
@@ -155,24 +181,29 @@ def main():
     for element in my_list:
         print(element, end=' ')
 
-    # Очистка списка
+    print('Очистка списка')
     my_list.clear()
     print(my_list)
 
-    # Добавления элемента в конец списка
+    print('Добавления элемента в конец списка')
     my_list.append(7)
     my_list.append(17)
-    print(my_list)
+    print(f'{my_list} --- {len(my_list)=}\n')
 
-    # Добавления элемента в произвольное место списка
+    print('Добавления элемента в произвольное место списка')
     my_list.add_i(25, 2)
     my_list.add_i(1, 0)
     my_list.add_i(3, 1)
     my_list.add_i(13, 3)
-    print(my_list)
+    print(f'{my_list} --- {len(my_list)=}\n')
 
-    # Удаления элемента из конца и произвольного места списка
-
+    print('Удаления элемента из конца и произвольного места списка')
+    my_list.del_i(0)
+    print(f'{my_list} --- {len(my_list)=}')
+    my_list.del_i(4)
+    print(f'{my_list} --- {len(my_list)=}')
+    my_list.del_i(1)
+    print(f'{my_list} --- {len(my_list)=}\n')
 
 if __name__ == '__main__':
     main()
