@@ -2,12 +2,15 @@ lst = []
 str = input("Enter some  numbers separated by space: ")
 
 for x in str.split(" "):
-    try:
-        x = int(x)
-    except ValueError:
+    if x == "":
         continue
     else:
-        lst.append(int(x))
+        try:
+            x = int(x)
+        except ValueError:
+            continue
+        else:
+            lst.append(int(x))
 
 
 def avg(*args):
