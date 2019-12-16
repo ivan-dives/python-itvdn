@@ -1,11 +1,7 @@
 lst = []
 str = input("Enter some text: ")
 
-for x in str.split(" "):
-    if x == "":
-        continue
-    else:
-        lst.append(x)
+lst.extend([x for x in str.split(" ") if x != ""])
 
 lst.sort()
 
