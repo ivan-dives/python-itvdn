@@ -85,6 +85,7 @@ class MyList(object):
         self._head.next = None
         self._head = None
         self._tail = None
+        self._tail.prev = None
         self._length = 0
 
     def delete(self):
@@ -151,6 +152,8 @@ def main():
     my_list.delete_by_index(0)
     print(my_list)
     print(len(my_list))
+    my_list.clear()
+    print(my_list)
 
 
 
