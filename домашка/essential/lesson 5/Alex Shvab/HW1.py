@@ -1,7 +1,7 @@
 lst = []
 str = input("Enter some  numbers separated by space: ")
 
-lst.extend([x for x in str.split(" ") if x != ""])
+lst.extend([int(x) for x in str.split(" ") if x != ""])
 
 
 def avg(*args):
