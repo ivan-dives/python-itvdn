@@ -4,12 +4,15 @@
 # чисел и среднее арифметическое чисел из заданного диапазона.
 
 
-def avg(*args):
-    return sum(args)/len(args)
+def avg(*numbs):
+    """Среднее арифметическое заданных чисел"""
+    return sum(numbs) / len(numbs)
 
 
-numbs = input('Enter numbers: ')
-numbs = numbs.split()
-numbs = [int(i) for i in numbs]
-print('Average of', numbs, '= ', end='')
-print(avg(*numbs))
+def main():
+    print(avg(7, 15))  # среднее арифметическое чисел 7 и 15
+    print(avg(*range(11)))  # среднее арифметическое чисел в диапазоне [0, 11)
+
+
+if __name__ == '__main__':
+    main()
