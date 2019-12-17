@@ -8,8 +8,8 @@ def avg(*args):
     return sum(args)/len(args)
 
 
-numbs = input('Enter numbers separated by one space: ')
-numbs = numbs.split(sep=' ')
+numbs = input('Enter numbers: ')
+numbs = numbs.split()
 numbs = [int(i) for i in numbs]
 print('Average of', numbs, '= ', end='')
 print(avg(*numbs))
