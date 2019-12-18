@@ -10,15 +10,21 @@ def add():
     while True:
         link1 = input('enter adress')
         if link1.lower() == 'exit':
-            break
+            exit()
         elif link1.lower() == 'find':
             find()
         hash1 = list(link1.split('.'))
+        print(hash1)
         global n
         n += 1
-        bd[hash1[0]] = link1
+        if hash1[0] == 'www':
+            bd[hash1[1]] = link1
+            print(f'{hash1[1]} - long link, {n} - short link')
+        else:
+            bd[hash1[0]] = link1
+            print(f'{hash1[0]} - long link, {n} - short link')
         bd[str(n)] = link1
-        print(f'{hash1[0]} - long link, {n} - short link')
+
 
 
 def find():
@@ -28,7 +34,7 @@ def find():
         enterfind = input()
         print(bd.setdefault(enterfind))
         if enterfind.lower() == 'exit':
-            break
+            exit()
         elif enterfind.lower() == 'add':
             add()
 
