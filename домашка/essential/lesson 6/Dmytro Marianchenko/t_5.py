@@ -22,6 +22,9 @@ def lst(config_dict):
 config = config.replace("=", "\n")
 container = config.split("\n")
 config_dict = {container[i]: container[i + 1] for i in range(0, len(container), 2)}
+print()
+print("  <<  read data from 'conf.txt' >>  ")
+print()
 prt(config_dict)
 print()
 print("  <<  changing data to >>  ")
