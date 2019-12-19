@@ -10,5 +10,4 @@ my_dict = {
     'key 3': 333
 }
 
-foo(key3=100, key2=102, key= 333)
-
+foo(**my_dict)
