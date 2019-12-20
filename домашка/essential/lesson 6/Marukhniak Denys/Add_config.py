@@ -1,4 +1,5 @@
 import os
+import csv
 
 print(f'\nLocation for searching config.txt:\n{os.getcwd()}...')
 if 'config.txt' in os.listdir(os.getcwd()):
@@ -50,13 +51,33 @@ print(string)
 with open('config.txt', 'w') as f:
     f.write(string)
 
-# import pathlib
-# print(os.listdir(os.getcwd()))
-# PATH = pathlib.Path(os.getcwd()) / '..'
-# print(PATH)
-# print(os.listdir(PATH))
-# os.chdir(PATH)
-# print(os.getcwd())
-# print(os.listdir(os.getcwd()))
-# print(PATH)
-# print(os.listdir(PATH))
+
+# csv
+def csv_writer(csv_data, csv_path):
+    with open(csv_path, "w", newline='') as csv_file:
+        writer = csv.writer(csv_file, delimiter=',')
+        for line in csv_data:
+            writer.writerow(line)
+
+
+print('\nChanged dict into cvs_data')
+print(dict_config)
+data = [[], []]
+for key, values in dict_config.items():
+    data[0].append(f'{key}')
+    data[1].append(f'{values}')
+print(data)
+w_path = "config.csv"
+csv_writer(data, w_path)
+
+
+def csv_reader(file_obj):
+    reader = csv.reader(file_obj)
+    for row in reader:
+        print(" ".join(row))
+
+
+print('\nRead config.csv')
+r_path = "config.csv"
+with open(r_path, "r") as f_obj:
+    csv_reader(f_obj)
