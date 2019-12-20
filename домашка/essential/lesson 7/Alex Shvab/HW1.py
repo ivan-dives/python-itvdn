@@ -1,7 +1,5 @@
 import url_work
 
-full_url = {}
-short_url = {}
 
 while True:
     print("""Select operation:
