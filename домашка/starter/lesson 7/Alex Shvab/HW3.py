@@ -1,3 +1,4 @@
+__all__ = ["simpl_numb", "list"]
 list = []
 
 def simpl_numb(n):
@@ -33,3 +34,5 @@ while True:
     elif op == 3:
         break
 
+if __name__ == "__main__":
+    main()
