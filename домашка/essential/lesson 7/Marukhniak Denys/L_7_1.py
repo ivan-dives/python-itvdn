@@ -18,8 +18,8 @@ def main():
         command_menu = int(input('Enter number: '))
         if command_menu == 1:
             url = input('Enter url: ')
-            su.add_new_url(url)
-            print(f'Your short url: {su.get_short(url)}')
+            su.add_n_get(url)
+            print(f'Your short url: {su.add_n_get(url)}')
         elif command_menu == 2:
             short_name_in = input('Enter short url: ')
             try:
