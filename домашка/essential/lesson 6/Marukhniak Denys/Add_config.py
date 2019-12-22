@@ -21,9 +21,9 @@ for x in tmp:
     split_tmp = x.split(sep='=')
     up_tmp = {split_tmp[0]: split_tmp[1]}
     dict_config.update(up_tmp)
-print(f'Config into dict:\n{dict_config}')
+print(f'Config into dict:\n{dict_config}\n')
 
-print('\nPrinted dict:')
+print('Printed dict:')
 for key, values in dict_config.items():
     print(f'{key} = {values}')
 print(dict_config.get('age', 'Form "Age" has not found\n'))
@@ -32,12 +32,12 @@ dict_config.update({'username': 'petr'})
 # pas_new = input('Enter new password: ')
 dict_config.update({'password': 'pas_new'})
 
-print('\nChanged dict: ')
+print('Changed dict: ')
 for key, values in dict_config.items():
     print(f'{key} = {values}')
 
 print('\nChanged dict into string:')
-print(f'{dict_config}')
+print(dict_config)
 list_tmp = []
 string = ''
 for key, values in dict_config.items():
@@ -60,12 +60,12 @@ def csv_writer(csv_data, csv_path):
             writer.writerow(line)
 
 
-print('\nChanged dict into cvs_data')
+print('\nChanged dict into cvs_data:')
 print(dict_config)
 data = [[], []]
 for key, values in dict_config.items():
-    data[0].append(f'{key}')
-    data[1].append(f'{values}')
+    data[0].append(key)
+    data[1].append(values)
 print(data)
 w_path = "config.csv"
 csv_writer(data, w_path)
