@@ -10,12 +10,13 @@ def simpl_numb(n):
         if k < 2:
             list.append(i)
 
-x = int(input("Enter end: "))
-simpl_numb(x+1)
-print(f"Simple numbers: {list}")
-
 
 def main():
+
+    x = int(input("Enter end: "))
+    simpl_numb(x+1)
+    print(f"Simple numbers: {list}")
+
     while True:
         print("""Enter operation:
         1. Sum
