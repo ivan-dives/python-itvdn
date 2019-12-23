@@ -5,8 +5,9 @@ full_url = {}
 short_url = {}
 
 def cut_link(long_link):
-    short_link = "http://sashka/" + "".join(random.choice(string.ascii_uppercase + string.ascii_lowercase + string.digits) for x in
+    short = (random.choice(string.ascii_uppercase + string.ascii_lowercase + string.digits) for x in
         range(random.randrange(5, 8)))
+    short_link = "http://sashka/" + "".join(short)
 
     full_url[long_link] = short_link
     short_url[short_link] = long_link
