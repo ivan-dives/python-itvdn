@@ -12,8 +12,9 @@ while True:
     choose = int(input("> "))
     if choose == 1:
         enter_full_url = input("Enter your url: ")
-        short_link = "http://" + "".join(random.choice(string.ascii_uppercase + string.ascii_lowercase + string.digits) for x in
+        short = (random.choice(string.ascii_uppercase + string.ascii_lowercase + string.digits) for x in
                                          range(random.randrange(5, 8)))
+        short_link = "http://" + "".join(short)
 
         full_url[enter_full_url] = short_link
         short_url[short_link] = enter_full_url
@@ -24,7 +25,3 @@ while True:
     else:
         print("Exit")
         break
-
-
-# print(full_url)
-# print(short_url)
