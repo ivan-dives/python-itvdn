@@ -1,4 +1,4 @@
-# Создайте список товаров в интернет-магазине. Сериализуйте его при помощи pickle и сохраните в JSON.
+#  Создайте список товаров в интернет-магазине. Сериализуйте и сохраните его при помощи pickle и JSON.
 import json
 import pickle
 shop_list = {
@@ -25,6 +25,3 @@ with open('D:\\data.pickle', 'rb') as pic2:
     after_save_p = pickle.load(pic2)
 
 print(after_save_p)
-
-
-
