@@ -43,19 +43,12 @@ def main():
         f = {"1": add_link_to, "2": get_link_from}
 
         choice = input('> ').strip()
+        if choice == "3":
+            break
         try:
             f[choice](links)
-        except Exception as ex:
-            print(ex)
-        if choice == '1':
-            add_link_to(links)
-        elif choice == '2':
-            get_link_from(links)
-        elif choice == '3':
-            break
-        else:
+        except KeyError:
             print('Некорректный ввод пункта меню')
-
         print()
 
 
