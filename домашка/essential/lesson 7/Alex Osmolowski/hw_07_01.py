@@ -11,8 +11,8 @@ import os
 
 
 # pprint.pprint(dir(os))
-print(os.getcwd())
-sys.path.insert(0, os.getcwd())
+# print(os.getcwd())
+# sys.path.insert(0, os.getcwd())
 # print(sys.path[0])
 
 
@@ -21,13 +21,12 @@ import mylinks
 
 def main():
     links = {}
+    f = {"1": add_link_to, "2": get_link_from}
 
     while True:
         print('1. Добавить ссылку')
         print('2. Показать ссылку')
         print('3. Выход')
-
-        f = {"1": add_link_to, "2": get_link_from}
 
         choice = input('> ').strip()
         if choice == "3":
