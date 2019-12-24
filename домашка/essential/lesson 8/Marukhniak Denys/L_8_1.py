@@ -9,14 +9,14 @@ def numbs():
     return str(random.randrange(99))
 
 
-with open('random.txt', 'w') as f:
+with open('L_8_1_random.txt', 'w') as f:
     for i in range(20):
         line = ''
         for j in range(25):
             line += (numbs() + ' ').zfill(3)
         f.write(line.rstrip() + '\n')
 
-with open('random.txt', 'r') as f:
+with open('L_8_1_random.txt', 'r') as f:
     s = f.read()
 
 print(type(s))
