@@ -27,7 +27,7 @@ def get_link_from(links):
     if url:
         print(url)
     else:
-        print('Такой ссылки не существует!')
+        print(name, ' - такое имя ссылки отсутствует!')
 
 
 def main():
@@ -40,7 +40,13 @@ def main():
         print('2. Показать ссылку')
         print('3. Выход')
 
-        choice = input('> ')
+        f = {"1": add_link_to, "2": get_link_from}
+
+        choice = input('> ').strip()
+        try:
+            f[choice](links)
+        except Exception as ex:
+            print(ex)
         if choice == '1':
             add_link_to(links)
         elif choice == '2':
