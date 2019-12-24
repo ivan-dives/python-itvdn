@@ -5,15 +5,7 @@
 # замене последнего на другой, взаимодействующий с пользователем иным способом, программа
 # должна продолжать корректно работать.
 
-import pprint
-import sys
-import os
 
-
-# pprint.pprint(dir(os))
-# print(os.getcwd())
-# sys.path.insert(0, os.getcwd())
-# print(sys.path[0])
 
 
 from mylinks import *
