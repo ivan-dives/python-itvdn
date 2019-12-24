@@ -2,11 +2,6 @@
 # отдельные его имена.
 
 
-import sys
-import os
-import pathlib
-
-
 from mysimplenums import simple_gen
 
 
