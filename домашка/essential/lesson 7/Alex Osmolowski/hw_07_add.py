@@ -6,11 +6,8 @@ import sys
 import os
 import pathlib
 
-pt = pathlib.Path(os.getcwd()+'/../../lesson 4/Alex Osmolowski/').resolve()
-# print(pt)
-sys.path.insert(0, pt)
-# print(sys.path[0])
-from hw_04_add import *
+
+from mysimplenums import simple_gen
 
 
 def main():
