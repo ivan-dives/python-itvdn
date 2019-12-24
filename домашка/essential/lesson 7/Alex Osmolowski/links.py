@@ -24,7 +24,7 @@ def get_link_from(links):
     if url:
         print(url)
     else:
-        print('Такой ссылки не существует!')
+        print(name, ' - такое имя ссылки отсутствует!')
 
 
 def main():
