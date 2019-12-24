@@ -1,4 +1,3 @@
-# import t_1
 def base(k):
     k = container.get(k)
     return k
@@ -12,6 +11,7 @@ def add_to_base(x, y):
 container = {
     "https://docs.python.org/3/library/index.html": "https://goo-gl.su/python"
 }
+URL_DEFAULT_LINK = "https://www.google.com/search?q="
 
 
 def user_input():
@@ -27,7 +27,7 @@ def user_input():
         if ch == "find":
             find_key = input("What link are we looking for?\n ")
             new_key = find_key
-            base(find_key)
+            find_key = base(find_key)
             if find_key is None:
                 print("no similar links found...")
                 yes = input("Do you want to add? ('y' or press 'Enter'):\n ")
@@ -42,7 +42,7 @@ def user_input():
             add_to_base(new_key, new_var)
         elif ch == "get":
             new_key = input("Enter a word to get link\n ")
-            container.setdefault(new_key, "https://www.google.com/search?q=" + new_key)
+            container.setdefault(new_key, f"{URL_DEFAULT_LINK}/{new_key}")
             print(container.get(new_key))
         elif ch == "exit":
             exit()

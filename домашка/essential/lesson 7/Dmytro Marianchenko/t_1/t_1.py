@@ -1,4 +1,5 @@
 container = {"https://docs.python.org/3/library/index.html": "https://goo-gl.su/python"}
+URL_SHORT_LINK = "http//srt.lnk."
 
 
 def main():
@@ -11,7 +12,7 @@ def main():
         default_key = find_key
         find_key = container.get(find_key)
         if find_key is None:
-            container.setdefault(default_key,  + default_key)
+            container.setdefault(default_key, f"{URL_SHORT_LINK}/{default_key}")
             print(container.get(default_key))
 
 
