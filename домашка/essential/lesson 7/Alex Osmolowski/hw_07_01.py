@@ -16,7 +16,7 @@ import os
 # print(sys.path[0])
 
 
-import mylinks
+from mylinks import *
 
 
 def main():
