@@ -23,11 +23,11 @@ config = config.replace("=", "\n")
 container = config.split("\n")
 config_dict = {container[i]: container[i + 1] for i in range(0, len(container), 2)}
 print()
-print("  <<  read data from 'config_data.txt' >>  ")
+print("    read data from 'config_data.txt'   ")
 print()
 prt(config_dict)
 print()
-print("  <<  changing data to >>  ")
+print("    changing data to   ")
 print()
 config_dict.update({"username": "petr", "password": "new_password"})
 config_dict["age"] = "33"
@@ -36,6 +36,6 @@ print()
 lst_data = lst(config_dict)
 string = " ".join(lst_data)
 
-print("  <<  writing data as 'string' to 'config_data.txt'  >>  ")
+print("    writing data as 'string' to 'config_data.txt'    ")
 with open('config_data.txt', 'w') as f:
     f.write(string)

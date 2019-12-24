@@ -1,17 +1,4 @@
-def base(k):
-    k = container.get(k)
-    return k
-
-
-def add_to_base(x, y):
-    container[x] = y
-    return container
-
-
-container = {
-    "https://docs.python.org/3/library/index.html": "https://goo-gl.su/python"
-}
-URL_DEFAULT_LINK = "https://www.google.com/search?q="
+import func_mod
 
 
 def user_input():
@@ -27,23 +14,29 @@ def user_input():
         if ch == "find":
             find_key = input("What link are we looking for?\n ")
             new_key = find_key
-            find_key = base(find_key)
-            if find_key is None:
+            sw = func_mod.get_data(find_key)
+            if sw is None:
                 print("no similar links found...")
                 yes = input("Do you want to add? ('y' or press 'Enter'):\n ")
                 if yes == "y":
                     new_var = input("Set a new link\n ")
-                    add_to_base(new_key, new_var)
+                    container = {new_key: new_var}
+                    func_mod.put_data(container)
+                else:
+                    pass
             else:
-                print(container.get(new_key))
+                print(func_mod.get_data(find_key))
         elif ch == "add":
             new_key = input("Enter a new link to add\n ")
             new_var = input("and now enter a result link to set\n ")
-            add_to_base(new_key, new_var)
+            container = {new_key: new_var}
+            func_mod.put_data(container)
+            print("add complete..")
         elif ch == "get":
             new_key = input("Enter a word to get link\n ")
-            container.setdefault(new_key, f"{URL_DEFAULT_LINK}/{new_key}")
-            print(container.get(new_key))
+            temp = (new_key, f"{func_mod.URL_SHORT_LINK}/{new_key}")
+            print(temp)
+            func_mod.put_default_data(temp)
         elif ch == "exit":
             exit()
         else:

@@ -27,7 +27,7 @@ def get_link_from(links):
     if url:
         print(url)
     else:
-        print('Такой ссылки не существует!')
+        print(name, ' - такое имя ссылки отсутствует!')
 
 
 def main():
@@ -40,16 +40,15 @@ def main():
         print('2. Показать ссылку')
         print('3. Выход')
 
-        choice = input('> ')
-        if choice == '1':
-            add_link_to(links)
-        elif choice == '2':
-            get_link_from(links)
-        elif choice == '3':
-            break
-        else:
-            print('Некорректный ввод пункта меню')
+        f = {"1": add_link_to, "2": get_link_from}
 
+        choice = input('> ').strip()
+        if choice == "3":
+            break
+        try:
+            f[choice](links)
+        except KeyError:
+            print('Некорректный ввод пункта меню')
         print()
 
 
