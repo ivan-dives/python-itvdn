@@ -7,12 +7,7 @@ for _ in range(n):
     tmp = input()
     life.append(list(tmp))
 
-for a in range(n):
-    for b in range(n):
-        if life[a][b] == '+':
-            life[a][b] = 1
-        elif life[a][b] == '-':
-            life[a][b] = 0
+life = [[1 if life[a][b] == '+' else 0 for a in range(n)] for b in range(n)]
 
 for x in range(len(life[0])):
     for y in range(len(life)):
