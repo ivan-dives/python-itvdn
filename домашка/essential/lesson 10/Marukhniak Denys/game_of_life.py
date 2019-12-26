@@ -25,10 +25,11 @@ for i in range(generation):
             die_or_life = 0
             try:
                 for j in [x-1, x, x+1]:
-                    for l in [y-1, y, y+1]:
-                        if x == j and y == l:
+                    for k in [y - 1, y, y + 1]:
+                        if x == j and y == k:
                             continue
-                        die_or_life += life[j][l]
+                        elif 0 <= j < n and 0 <= k < n:
+                            die_or_life += life[j][k]
             except IndexError:
                 continue
             if die_or_life == 3 and life[x][y] == 0:         # Появление точки при 3 соседках.
