@@ -3,7 +3,6 @@ def decor(fun):
         result = fun(*args)
         lst = list(filter(lambda x: x % 2 == 0, result))
         return lst
-
     return wrapper
 
 
