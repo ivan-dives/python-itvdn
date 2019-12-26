@@ -34,18 +34,16 @@ class SpaceTable:
             print()
 
     def neib_count(self, pnt):
-        sum = 0
+        sm = 0
         for i in range(pnt[0]-1, pnt[0]+2):
             for j in range(pnt[1]-1, pnt[1]+2):
                 if not (i == pnt[0] and j ==pnt[1]):
                     try:
-                        b = self.get_elem(i, j)
+                        sm += int(self.get_elem(i, j))
                     except IndexError:
                         pass
-                    else:
-                        if b:
-                            sum += 1
-        return sum
+
+        return sm
 
 
 def main():
