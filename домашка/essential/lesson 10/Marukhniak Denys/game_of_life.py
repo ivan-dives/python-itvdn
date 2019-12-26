@@ -19,9 +19,9 @@ for x in range(len(life[0])):
 
 generation = int(input('Сколько поколений показать? \n'))
 for i in range(generation):
-    next_life = [[0 for _ in range(len(life))] for _ in range(len(life))]
-    for x in range(len(life[0])):
-        for y in range(len(life)):
+    next_life = [[0 for _ in range(n)] for _ in range(n)]
+    for x in range(n):
+        for y in range(n):
             die_or_life = 0
             try:
                 for j in [x-1, x, x+1]:
@@ -39,10 +39,10 @@ for i in range(generation):
                 next_life[x][y] = 1
 
     result = next_life
-    if result == [[0 for _ in range(len(result))] for _ in range(len(result))]:
+    if result == [[0 for _ in range(n)] for _ in range(n)]:
         print(f'Все точки (+) погибли на {i+1} поколении.')
         break
-    elif result == [[1 for _ in range(len(result))] for _ in range(len(result))]:
+    elif result == [[1 for _ in range(n)] for _ in range(n)]:
         print(f'Точки (+) все заполонили на {i+1} поколении.')
         break
     elif life == next_life:
@@ -50,8 +50,8 @@ for i in range(generation):
         break
     else:
         print(f'{i+1} поколение:')
-        for x in range(len(result[0])):
-            for y in range(len(result)):
+        for x in range(n):
+            for y in range(n):
                 if result[x][y] == 1:
                     print('+', end='  ')
                 else:
