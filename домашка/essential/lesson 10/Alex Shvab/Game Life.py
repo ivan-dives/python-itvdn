@@ -1,3 +1,4 @@
+import pprint
 world = [
     [0, 0, 0, 0, 0],
     [0, 0, 1, 1, 0],
@@ -10,21 +11,22 @@ world = [
 def next_gen():
     new_w = []
     for i in range(len(world[0])):
+        new_w.append([0] * len(world))
         for j in range(len(world)):
             if world[i][j] == 0:
                 count = count_neighbor(i,j)
                 if count > 2:
-                    new_w.append([1])
+                    new_w[i][j] = 1
                 else:
-                    new_w.append([0])
+                    new_w[i][j] = 0
 
             if world[i][j] == 1:
                 count = count_neighbor(i,j)
                 if count < 2 or count > 3:
-                    new_w.append([0])
+                    new_w[i][j] = 0
                 else:
-                    new_w.append([1])
-    print(new_w)
+                    new_w[i][j] = 1
+    pprint.pprint(new_w)
 
 
 def neighbor(x, y):
@@ -48,4 +50,11 @@ def count_neighbor(x, y):
                 pass
     return n
 
-next_gen()
+def main():
+    life = int(input("Enter number of life: "))
+    for x in range(life):
+        next_gen()
+        print()
+
+if __name__ == "__main__":
+    main()
