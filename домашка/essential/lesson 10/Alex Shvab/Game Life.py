@@ -85,6 +85,7 @@ def main():
     pprint.pprint(world)
     life = int(input("Enter number of life: "))
     for x in range(life):
+        print(f"Generation {x}")
         res = next_gen(world)
         if res == 1:
             print("End")
