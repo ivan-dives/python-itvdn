@@ -15,7 +15,7 @@ def fib(n):
     for _ in range(n):
         yield a
         a, b = b, a + b
-        a = b
+        # a = b
         # b = a + b
 
 
