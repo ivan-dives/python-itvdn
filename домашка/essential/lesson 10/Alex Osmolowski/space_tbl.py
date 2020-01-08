@@ -20,8 +20,11 @@ class SpaceTable:
         self.__space[i][j] = b
 
     def set_points(self, lst_pnts):
-        for i in range(len(lst_pnts)):
-            self.set_elem(lst_pnts[i][0], lst_pnts[i][1], True)
+        for p in lst_pnts:
+            self.set_elem(p[0], p[1], True)
+
+        #for i in range(len(lst_pnts)):
+        #    self.set_elem(lst_pnts[i][0], lst_pnts[i][1], True)
 
     def prn_st(self):
         for i in range(len(self.__space)):
