@@ -30,9 +30,9 @@ class SpaceTable:
         for i in range(len(self.__space)):
             for j in range(len(self.__space[i])):
                 if self.get_elem(i, j):
-                    smb = "* "
+                    smb = "X  "
                 else:
-                    smb = "X "
+                    smb = "_  "
                 print(smb, end="")
             print()
 
