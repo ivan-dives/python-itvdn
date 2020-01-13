@@ -19,7 +19,14 @@ for x in range(len(life[0])):
 
 generation = int(input('Сколько поколений показать? \n'))
 for i in range(generation):
-    next_life = [[0 for _ in range(n)] for _ in range(n)]
+    # next_life = [[0 for _ in range(n)] for _ in range(n)]
+    next_life = [
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0]
+    ]
     for x in range(n):
         for y in range(n):
             die_or_life = 0
@@ -40,10 +47,22 @@ for i in range(generation):
                 next_life[x][y] = 1
 
     result = next_life
-    if result == [[0 for _ in range(n)] for _ in range(n)]:
+    if result == [
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0]
+    ]:
         print(f'Все точки (+) погибли на {i+1} поколении.')
         break
-    elif result == [[1 for _ in range(n)] for _ in range(n)]:
+    elif result == [
+        [1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1]
+    ]:
         print(f'Точки (+) все заполонили на {i+1} поколении.')
         break
     elif life == next_life:
