@@ -8,21 +8,20 @@ world = [
 ]
 
 
-
 def next_gen(world_current):
     new_w = []
     for i in range(len(world_current[0])):
         new_w.append([0] * len(world_current))
         for j in range(len(world_current)):
             if world_current[i][j] == 0:
-                count = count_neighbor(i,j)
+                count = count_neighbor(i, j)
                 if count > 2:
                     new_w[i][j] = 1
                 else:
                     new_w[i][j] = 0
 
             if world_current[i][j] == 1:
-                count = count_neighbor(i,j)
+                count = count_neighbor(i, j)
                 if count < 2 or count > 3:
                     new_w[i][j] = 0
                 else:
@@ -58,8 +57,6 @@ def any_survivors(w):
         return False
 
 
-
-
 def neighbor(x, y):
     for i in range(x, x+1):
         for j in range(y, y+1):
@@ -73,13 +70,14 @@ def count_neighbor(x, y):
     n = 0
     for a in [x-1, x, x+1]:
         for b in [y-1, y, y+1]:
-            if a==x and b==y:
+            if a == x and b == y:
                 continue
             try:
                 n += world[a][b]
             except IndexError:
                 pass
     return n
+
 
 def main():
     pprint.pprint(world)
@@ -94,6 +92,7 @@ def main():
             print("All dead")
             break
         print()
+
 
 if __name__ == "__main__":
     main()
