@@ -29,21 +29,21 @@ for i in range(generation):
     ]
     for x in range(n):
         for y in range(n):
-            die_or_life = 0
+            neighbors = 0
             try:
                 for j in [x-1, x, x+1]:
                     for k in [y - 1, y, y + 1]:
                         if x == j and y == k:
                             continue
                         elif 0 <= j < n and 0 <= k < n:
-                            die_or_life += life[j][k]
+                            neighbors += life[j][k]
             except IndexError:
                 continue
-            if die_or_life == 3 and life[x][y] == 0:         # Появление точки при 3 соседках.
+            if neighbors == 3 and life[x][y] == 0:         # Появление точки при 3 соседках.
                 next_life[x][y] = 1
-            elif 3 < die_or_life < 2 and life[x][y] == 1:    # Смерть точки от перенаселения или скуки.
+            elif 3 < neighbors < 2 and life[x][y] == 1:    # Смерть точки от перенаселения или скуки.
                 next_life[x][y] = 0
-            elif die_or_life in [2, 3] and life[x][y] == 1:  # Точка остается жива.
+            elif neighbors in [2, 3] and life[x][y] == 1:  # Точка остается жива.
                 next_life[x][y] = 1
 
     result = next_life
