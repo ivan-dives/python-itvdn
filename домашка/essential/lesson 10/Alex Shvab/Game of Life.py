@@ -15,7 +15,7 @@ def next_gen(world_current):
         for j in range(len(world_current)):
             if world_current[i][j] == 0:
                 count = count_neighbor(i, j)
-                if count > 2:
+                if count == 3:
                     new_w[i][j] = 1
                 else:
                     new_w[i][j] = 0
@@ -34,36 +34,16 @@ def next_gen(world_current):
         return 2
 
     pprint.pprint(new_w)
-    world.clear()
-    for i in range(len(new_w[0])):
-        world.append([0] * len(new_w))
-        for j in range(len(new_w)):
-            if new_w[i][j] == 1:
-                world[i][j] = 1
-            else:
-                world[i][j] = 0
+    global world
+    world = new_w
 
 
 def any_survivors(w):
-    count_life = 0
     for i in range(len(w[0])):
         for j in range(len(w)):
             if w[i][j] == 1:
-                count_life += 1
-
-    if count_life > 0:
-        return True
-    else:
-        return False
-
-
-def neighbor(x, y):
-    for i in range(x, x+1):
-        for j in range(y, y+1):
-            if world[i][j] == 1:
-                return 1
-            else:
-                return 0
+                return True
+    return False
 
 
 def count_neighbor(x, y):
