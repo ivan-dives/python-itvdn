@@ -9,6 +9,10 @@ s.connect(('smtp.gmail.com', 587))
 hello = 'EHLO google.com'
 hello = hello.encode()
 s.send(hello)
-res = s.recv(10000)
+res = s.recv(1000)
+s_name = s.getsockname()
+
 print(res)
+print(f'{s_name=}')
+
 s.close()
