@@ -9,12 +9,12 @@ def read_sok():
 
 
 server = ('127.0.0.1', 5050)
-alias = input("Enter your nickname: ")
+alias = input("Enter your name: ")
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-s.bind(('', 0))
+s.connect(server)
 s.sendto((alias + ' Connect to server').encode('utf-8'), server)
 thread = threading.Thread(target=read_sok)
 thread.start()
 while 1:
-    message = input()
-    s.sendto(('[' + alias + ']' + message).encode('utf-8'), server)
+    msg = input()
+    s.sendto(('[' + alias + ']' + msg).encode('utf-8'), server)
