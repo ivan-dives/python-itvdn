@@ -13,13 +13,10 @@ with open("google_get.txt", "wb") as file:
 
 s.close()
 
-request = b"EHLO google.com"
+request = b"EHLO google.com\n"
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect(("smtp.gmail.com", 587))
-time.sleep(5)
-result = s.recv(10000)
-print(result)
-time.sleep(5)
 s.send(request)
+time.sleep(1)
 result = s.recv(10000)
 print(result)
