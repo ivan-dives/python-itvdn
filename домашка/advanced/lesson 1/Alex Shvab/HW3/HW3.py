@@ -1,4 +1,5 @@
 import socket
+import time
 
 
 request = b"GET / HTTP/1.1\nHost: www.google.com\n\n"
@@ -15,6 +16,10 @@ s.close()
 request = b"EHLO google.com"
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect(("smtp.gmail.com", 587))
+time.sleep(5)
+result = s.recv(10000)
+print(result)
+time.sleep(5)
 s.send(request)
 result = s.recv(10000)
 print(result)
