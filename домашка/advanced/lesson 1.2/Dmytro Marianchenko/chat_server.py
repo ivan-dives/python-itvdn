@@ -19,4 +19,4 @@ while True:
         else:
             message = conn.recv(1024)
             message = bytes.decode(message)
-            print(f"[socket {user.fileno()}]: {message}")
+            print(f"[socket {sock.fileno()}]: {message}")
