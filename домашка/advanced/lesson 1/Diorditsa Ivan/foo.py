@@ -1,6 +1,14 @@
+# import socket
+#
+# sock = socket.socket(socket.AF_UNIX, socket.SOCK_DGRAM)
+# sock.sendto(b'Test message', '/tmp/mysocket')
+#
+# exit()
+
 import socket
 
-text = input('траливали ')
+#text = input('траливали ')
+text = "sometext"
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect(('127.0.0.1', 10000))

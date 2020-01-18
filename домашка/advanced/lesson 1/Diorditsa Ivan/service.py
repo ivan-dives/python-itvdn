@@ -1,11 +1,26 @@
 import socket
 
+sock = socket.socket(socket.AF_UNIX, socket.SOCK_DGRAM)
+#sock.bind(('', 8888))
+sock.bind('/tmp/mysocket')
+result = sock.recv(1024)
+print('Message', result.decode('utf-8'))
+sock.close()
+
+exit()
+
+import socket
+import time
+
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind(('127.0.0.1', 10000))
-s.listen(2)
+s.listen(1)
+
+#time.sleep(30)
 
 client_socket, addr = s.accept()
 print(f'accept returned {addr=}')
+#time.sleep(30)
 msg = client_socket.recv(100)
 msg = msg.decode('utf-8')
 print(f'received {msg}')
