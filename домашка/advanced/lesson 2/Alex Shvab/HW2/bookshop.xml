@@ -1,0 +1,32 @@
+<bookstore>
+    <book category="COOKING">
+        <title lang="it">Everyday Italian</title>
+        <author>Giada De Laurentiis</author>
+        <year>2005</year>
+        <price>30.0</price>
+    </book>
+    <book category="CHILDREN">
+        <title lang="en">Harry Potter</title>
+        <author>J K. Rowling</author>
+        <year>2005</year>
+        <price>29.99</price>
+    </book>
+    <book category="WEB">
+        <title lang="en">Learning XML</title>
+        <author>Erik T. Ray</author>
+        <year>2003</year>
+        <price>39.95</price>
+    </book>
+    <book category="NOVEL">
+        <title lang="it">The Divine Comedy</title>
+        <author>Dante Alighieri</author>
+        <year>1348</year>
+        <price>42.5</price>
+    </book>
+    <book  category="NOVEL">
+        <title lang="en">The Gentle Grafter</title>
+        <author>O. Henry</author>
+        <year>1908</year>
+        <price>10.15</price>
+    </book>
+</bookstore>
