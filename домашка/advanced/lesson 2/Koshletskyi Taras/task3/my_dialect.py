@@ -3,6 +3,8 @@
 
 import csv
 
+path = 'data/output.csv'
+
 
 class CustomDialect(csv.Dialect):
     quoting = csv.QUOTE_ALL
@@ -12,17 +14,24 @@ class CustomDialect(csv.Dialect):
     lineterminator = '\r\n'
 
 
-csv.register_dialect('taras_dialect', CustomDialect)
+def make_file(path_output):
+    csv.register_dialect('taras_dialect', CustomDialect)
+    with open(path_output, 'w') as f:
+        writer = csv.writer(f, dialect='taras_dialect')
+        for i in range(5):
+            writer.writerow(['1', '2', '3'])
+            print()
 
-with open('data/output.csv', 'w') as f:
-    # два варианта передачи диалекта
-    # 2. передача класса диалекта
-    # writer = csv.writer(f, dialect=CustomDialect)
-    # 2. передача имени диалекта, который ма заранее зарегистрировали с этим
-    # же именем.
-    writer = csv.writer(f, dialect='taras_dialect')
-    writer.writerow(['1', '2', '3'])
-    writer.writerow(['1', '2', '3'])
-    writer.writerow(['1', '2', '3'])
-    writer.writerow(['1', '2', '3'])
-    writer.writerow(['1', '2', '3'])
+
+def parse_csv(path_input):
+    csv.register_dialect('taras_dialect', CustomDialect)
+    with open(path_input, 'r') as f:
+        reader = csv.reader(f, dialect='taras_dialect')
+        # print('Dialect: --->', reader.dialect)
+        for row in reader:
+            print(row)
+
+
+if __name__ == '__main__':
+    make_file(path)
+    parse_csv(path)

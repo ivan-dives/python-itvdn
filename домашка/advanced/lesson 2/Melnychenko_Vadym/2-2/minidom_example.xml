@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<root>
+  <leaf color="white">Text element with attributes</leaf>
+  <leaf_cdata><![CDATA[<em>CData</em> can contain <strong>HTML tags</strong> without encoding]]></leaf_cdata>
+  <branch>
+    <leaf color="white">Text element with attributes</leaf>
+  </branch>
+  <mixed>
+    <leaf color="black" state="modified">Text element with attributes</leaf>
+    Do not use mixed elements if it possible.
+  </mixed>
+</root>
