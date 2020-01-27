@@ -1,43 +1,72 @@
-import json
+#from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
+from os import curdir, sep
 from http import server
-import os
+import cgi
+
+PORT_NUMBER = 8080
 
 
+# This class will handles any incoming request from
+# the browser
 class CustomHandler(server.SimpleHTTPRequestHandler):
-    path_to_image = 'ok.jpg'
-    img = open(path_to_image, 'rb')
-    statinfo = os.stat(path_to_image)
-    img_size = statinfo.st_size
-    print(img_size)
 
+    # Handler for the GET requests
     def do_GET(self):
-        path_to_image = 'ok.jpg'
-        img = open(path_to_image, 'rb')
-        statinfo = os.stat(path_to_image)
+        if self.path == "/":
+            self.path = "/ok.jpg"
 
-        self.send_response(400)
-        self.send_header('content-type', 'image/jpg')
-        self.end_headers()
-        self.wfile.write(img)
+        try:
+            # Check the file extension required and
+            # set the right mime type
 
-    def do_POST(self):
-        self.send_response(200)
-        self.send_header('content-type', 'application/json')
-        self.send_header('Server', 'CoolServer')
-        self.end_headers()
-        self.wfile.write(json.dumps({'result': True}).encode())
-
-    def do_PUT(self):
-        self.send_response(200)
-        self.send_header('content-type', 'text/plain')
-        self.end_headers()
-        self.wfile.write(b'PUT request\n')
-
-    def do_HEAD(self):
-        self.send_response(200)
-        self.end_headers()
+            sendReply = False
+            if self.path.endswith(".html"):
+                mimetype = 'text/html'
+                sendReply = True
+            if self.path.endswith(".jpg"):
+                mimetype = 'image/jpg'
+                sendReply = True
 
 
-server_address = ('', 8888)
-httpd = server.HTTPServer(server_address, CustomHandler)
-httpd.serve_forever()
+            if sendReply == True:
+                # Open the static file requested and send it
+                f = open(curdir + sep + self.path)
+                self.send_response(200)
+                self.send_header('Content-type', mimetype)
+                self.end_headers()
+                self.wfile.write(f.read())
+                f.close()
+            return
+
+        except IOError:
+            self.send_error(404, 'File Not Found: %s' % self.path)
+
+    # Handler for the POST requests
+    # def do_POST(self):
+    #     if self.path == "/send":
+    #         form = cgi.FieldStorage(
+    #             fp=self.rfile,
+    #             headers=self.headers,
+    #             environ={'REQUEST_METHOD': 'POST',
+    #                      'CONTENT_TYPE': self.headers['Content-Type'],
+    #                      })
+    #
+    #         print("Your name is: %s" % form["your_name"].value)
+    #         self.send_response(200)
+    #         self.end_headers()
+    #         self.wfile.write("Thanks %s !" % form["your_name"].value)
+    #         return
+
+
+try:
+    # Create a web server and define the handler to manage the
+    # incoming request
+    server = server.HTTPServer(('127.0.0.1', PORT_NUMBER), CustomHandler)
+    print('Started httpserver on port ', PORT_NUMBER)
+
+    # Wait forever for incoming htto requests
+    server.serve_forever()
+
+except KeyboardInterrupt:
+    print('^C received, shutting down the web server')
+    server.socket.close()
