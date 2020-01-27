@@ -20,17 +20,6 @@ def wow_check():
                     time.sleep(1)
         except FileNotFoundError:
             time.sleep(1)
-        except Exception as e:
-            print(f'Unexpected error occurred!')
-            print(e)
-
-
-    # time.sleep(10)
-    # print('Product found!')
-    # # устанавливаем событий
-    # product.set()
-    # # очищаем событие
-    # product.clear()
 
 
 def find_wow():
@@ -45,15 +34,7 @@ def find_wow():
             pass
 
 
-    # print('product wait')
-    # # ожидаем события ровно столько, пока не вызовется product.set в любом из
-    # # потоков
-    # product.wait()
-    # print('Product exists!')
 
-
-# создаем событие, которое будем использовать в потока- ожидать и устанавливать
-# создадим блокировку потока до появления события product
 product = threading.Event()
 
 task1 = threading.Thread(target=wow_check)
