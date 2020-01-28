@@ -12,9 +12,9 @@ def factorial_fun(x):
 
 
 def main():
-    with ProcessPoolExecutor(max_workers=4) as exe_p:
+    with ProcessPoolExecutor(max_workers=5) as exe_p:
         print()
-        print(f"By using ProcessPoolExecutor factorial of 10 in", end=" ")
+        print("By using ProcessPoolExecutor factorial of 10 in", end=" ")
         exe_p.submit(factorial_fun(10))
         print("By using ProcessPoolExecutor factorial of 100 in", end=" ")
         exe_p.submit(factorial_fun(100))
@@ -22,8 +22,10 @@ def main():
         exe_p.submit(factorial_fun(1000))
         print("By using ProcessPoolExecutor factorial of 10000 in", end=" ")
         exe_p.submit(factorial_fun(10000))
+        print("By using ProcessPoolExecutor factorial of 100000 in", end=" ")
+        exe_p.submit(factorial_fun(100000))
         print()
-    with ThreadPoolExecutor (max_workers=4) as exe_t:
+    with ThreadPoolExecutor(max_workers=5) as exe_t:
         print("By using ThreadPoolExecutor factorial of 10 in", end=" ")
         exe_t.submit(factorial_fun(10))
         print("By using ThreadPoolExecutor factorial of 100 in", end=" ")
@@ -32,6 +34,9 @@ def main():
         exe_t.submit(factorial_fun(1000))
         print("By using ThreadPoolExecutor factorial of 10000 in", end=" ")
         exe_t.submit(factorial_fun(10000))
+        print("By using ThreadPoolExecutor factorial of 100000 in", end=" ")
+        exe_t.submit(factorial_fun(100000))
+
 
 if __name__ == "__main__":
     main()
