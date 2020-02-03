@@ -3,10 +3,10 @@ import sys
 import select
 
 
-server = ('127.0.0.1', 20000)
+SERVER = ('127.0.0.1', 20000)
 #name = input("Enter your name: ")
 user_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-user_sock.connect(server)
+user_sock.connect(SERVER)
 
 while True:
     r, w, e = select.select([user_sock, sys.stdin], [], [], 1)
