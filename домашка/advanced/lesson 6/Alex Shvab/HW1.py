@@ -7,3 +7,6 @@ def foo(some_value: List[int]) -> List[str]:
         temp = str(i)
         res.append(temp)
     return res
+
+foo([1, 2, 3])
+foo([1,3, "lol"])
