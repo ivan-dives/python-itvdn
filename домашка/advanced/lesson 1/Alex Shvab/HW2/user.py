@@ -1,7 +1,7 @@
 import socket
 
 
-user = user = socket.gethostname()
+user = socket.gethostname()
 user = user.encode("utf-8")
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 s.sendto(user, ("127.0.0.1", 10000))
