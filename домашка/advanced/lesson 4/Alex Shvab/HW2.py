@@ -2,9 +2,10 @@ def checker(name, bases, _dict):
     print(name, bases, _dict)
     newdict = {}
     for k, v in _dict.items():
-        if [s for s in k if s in '1234567890']:
-            raise Exception("Name can't include numbers",)
-        if k.isupper():
+        for i in k:
+            if not i.isdigit():
+                raise Exception("Name can't include numbers")
+        if not k.islower():
             raise Exception("Name can't include upper case")
         newdict[k.lower()] = v
     print(name, bases, newdict)
