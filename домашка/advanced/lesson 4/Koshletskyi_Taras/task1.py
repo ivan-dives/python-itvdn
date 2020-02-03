@@ -11,8 +11,8 @@ def get_surname(self):
 
 
 def init(self, name, surname):
-    self.first_name = name
-    self.last_name = surname
+    self.name = name
+    self.surname = surname
 
 
 attrs = {
@@ -33,7 +33,7 @@ def create_class(class_name, attr):
 
 
 Foo = create_class("Takoe", attrs)
-boo = Foo("Taras", "KOsh")
+boo = Foo("Taras", "Kosh")
 print(dir(Foo))
 # boo.surname = "Kosh"
 # boo.name = "Taras"
