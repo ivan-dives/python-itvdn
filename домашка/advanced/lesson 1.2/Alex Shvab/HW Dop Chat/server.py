@@ -15,7 +15,7 @@ while True:
         if s is list_clients:
             user_sock, addr = sock.accept()
             print(addr[0], addr[1])
-            list_clients.append(addr)
+            list_clients.append(user_sock)
         else:
             msg = sock.recv(5000)
             for clients in list_clients:
