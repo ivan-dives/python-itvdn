@@ -28,6 +28,8 @@
 
 import csv
 from collections import defaultdict
+
+
 def category_stat(data_file):
     res = defaultdict(lambda *a, **k: defaultdict(int))
 
@@ -35,7 +37,6 @@ def category_stat(data_file):
         res[cat]['total_products'] += 1
         if sellable == '1':
             res[cat]['sellable_products'] += 1
-
 
     with open(data_file, 'r', 1, 'utf-8') as f:
         reader = csv.reader(f)
