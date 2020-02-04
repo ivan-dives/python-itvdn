@@ -19,10 +19,7 @@ def is_simple(n):
 
 
 def find_simple(numbers):
-    s_lst = []
-    for x in numbers:
-        if is_simple(x):
-            s_lst.append(x)
+    s_lst = [x for x in numbers if is_simple(x)]
     return s_lst
 
 

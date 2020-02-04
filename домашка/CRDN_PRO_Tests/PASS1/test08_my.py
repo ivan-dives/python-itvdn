@@ -5,8 +5,7 @@
 
 def is_palindrome(n):
     sn = str(n)
-    rev_sn = "".join(list(reversed(sn)))
-    return sn == rev_sn
+    return sn == sn[::-1]
 
 
 def find_palindromes(numbers):
