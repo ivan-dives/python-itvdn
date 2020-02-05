@@ -1,72 +1,51 @@
-#from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
-from os import curdir, sep
-from http import server
-import cgi
-
-PORT_NUMBER = 8080
+import io
+import http.client
+import socketserver
 
 
-# This class will handles any incoming request from
-# the browser
-class CustomHandler(server.SimpleHTTPRequestHandler):
+class MyTCPHendler(socketserver.BaseRequestHandler):
+    def GET(self):
+        with open("ok.jpg", "rb") as img_f:
+            img = img_f.read()
 
-    # Handler for the GET requests
-    def do_GET(self):
-        if self.path == "/":
-            self.path = "/ok.jpg"
+        req = f"""\
+        POST / HTTP/1.1\r
+        Content-Type: image/jpeg\r
+        Content-Length: {str(len(img))}\r
+        \r
+        """
 
-        try:
-            # Check the file extension required and
-            # set the right mime type
+        req_b = req.encode()
+        req_b += img
 
-            sendReply = False
-            if self.path.endswith(".html"):
-                mimetype = 'text/html'
-                sendReply = True
-            if self.path.endswith(".jpg"):
-                mimetype = 'image/jpg'
-                sendReply = True
+        s.send(req_b)
 
-
-            if sendReply == True:
-                # Open the static file requested and send it
-                f = open(curdir + sep + self.path)
-                self.send_response(200)
-                self.send_header('Content-type', mimetype)
-                self.end_headers()
-                self.wfile.write(f.read())
-                f.close()
-            return
-
-        except IOError:
-            self.send_error(404, 'File Not Found: %s' % self.path)
-
-    # Handler for the POST requests
-    # def do_POST(self):
-    #     if self.path == "/send":
-    #         form = cgi.FieldStorage(
-    #             fp=self.rfile,
-    #             headers=self.headers,
-    #             environ={'REQUEST_METHOD': 'POST',
-    #                      'CONTENT_TYPE': self.headers['Content-Type'],
-    #                      })
-    #
-    #         print("Your name is: %s" % form["your_name"].value)
-    #         self.send_response(200)
-    #         self.end_headers()
-    #         self.wfile.write("Thanks %s !" % form["your_name"].value)
-    #         return
+    def POST(self):
+        msg_bts = self.request.recv(100000)
+        f = io.BytesIO(msg_bts)
+        headers = http.client.parse_headers(f)
+        headers = str(headers).split("\n")
+        for h in headers:
+            try:
+                name, value = h.split(": ")
+                if name == "Content-Type" and value != "image/jpeg":
+                    return
+                if name == "Content-Length":
+                    length = int(value)
+                    image = f.read(length)
+                    with open("image.jpg", "wb") as img_file:
+                        img_file.write(image)
+            except ValueError:
+                pass
 
 
-try:
-    # Create a web server and define the handler to manage the
-    # incoming request
-    server = server.HTTPServer(('127.0.0.1', PORT_NUMBER), CustomHandler)
-    print('Started httpserver on port ', PORT_NUMBER)
 
-    # Wait forever for incoming htto requests
-    server.serve_forever()
+class MyTCPServer(socketserver.ThreadingTCPServer):
+    allow_reuse_address = True
+    request_queue_size = 10
 
-except KeyboardInterrupt:
-    print('^C received, shutting down the web server')
-    server.socket.close()
+service = MyTCPServer(("127.0.0.1", 20000), MyTCPHendler)
+service.serve_forever()
+
+
+#
