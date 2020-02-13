@@ -42,10 +42,10 @@ async def wait_maxnum(max_num):
 
 def main():
     loop = asyncio.get_event_loop()
-    f1 = get_num()
+    # f1 = get_num()
     f2 = wait_maxnum(MAX_NUM)
     for i in range(MAX_NUM):
-        loop.create_task(f1)
+        loop.create_task(get_num())
     loop.create_task(f2)
     loop.run_forever()
 
