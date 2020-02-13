@@ -7,6 +7,7 @@ num_lst = []
 
 
 async def get_num():
+    print('get_num started')
     reader, writer = await asyncio.open_connection(SRV_IP, SRV_PORT)
     writer.write(b"osm")
     await writer.drain()
@@ -21,10 +22,11 @@ async def get_num():
 
 
 async def wait_maxnum(max_num):
+    print('wait_maxnum started')
     reader, writer = await asyncio.open_connection(SRV_IP, SRV_PORT)
 
     while len(num_lst) < max_num:
-        await asyncio.sleep(1)
+        await asyncio.sleep(5)
 
     sum_lst = 0
     for i in num_lst:
